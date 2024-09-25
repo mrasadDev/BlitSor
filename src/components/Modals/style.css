@@ -1,4 +1,7 @@
-
+.my-stepper .mantine-Stepper-step {
+  flex-direction: column;
+  text-align: center;
+}
 
 .upload-modal .mantine-Modal-body {
   padding-left: 20px;
@@ -51,55 +54,99 @@
 }
 
 .mantine-DatePickerInput-calendarHeader svg {
-    width: 20px !important;
-    height: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .mantine-Stepper-stepIcon {
-    min-width: 30px !important;
-    min-height: 30px !important;
-    background: transparent;
-    border: none !important;
-    width: 30px;
-    height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  background: transparent;
+  border: none !important;
+  width: 30px;
+  height: 30px !important;
 }
 .m_a79331dc {
-    color: #ff0045 !important;
+  color: #ff0045 !important;
 }
 
 .upload-file {
-    background-color: #FFE6EC80;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px dotted #ff0045;
-    height: 126px;
+  background-color: #ffe6ec80;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px dotted #ff0045;
+  height: 122px;
 }
 
 .thumbnail-size img {
-    border-radius: 12px;
+  border-radius: 12px;
 }
 
 .upload-file h6 {
-    color: #ff0045;
-    font-size: 14px;
+  color: #ff0045;
+  font-size: 14px;
 }
 
 .video-tags {
-    border: 1px solid #D0D5DD;
-    padding: 8px;
-    border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .video-tags li {
-    background-color: #6B7280;
-    color: #fff;
-    border-radius: 16px;
-    padding: 2px 8px;
-    display: inline-block;
-    font-size: 14px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+  background-color: #6b7280;
+  color: #fff;
+  border-radius: 16px;
+  padding: 2px 8px;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.thumbnail-img {
+  position: relative;
+  border-radius: 12px;
+}
+
+.thumbnail-img img {
+  border-radius: 12px;
+}
+
+.thumbnail-img::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background: #ff004580;
+  height: 100%;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  width: 100%;
+  opacity: 0;
+}
+
+.thumbnail-img:hover::after {
+  opacity: 1;
+}
+
+.thumbnail-img h5 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  color: #fff;
+  z-index: 1;
+  transition: all 0.3s ease;
+  transform: translate(-50%, 5px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.thumbnail-img:hover h5 {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -35px);
 }

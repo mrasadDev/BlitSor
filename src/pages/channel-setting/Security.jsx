@@ -18,6 +18,8 @@ const Security = () => {
                 placeholder="......."
                 className='mt-2'
                 type='password'
+                size="md"
+                radius={10}
             />
             <TextInput
                 withAsterisk
@@ -25,6 +27,8 @@ const Security = () => {
                 placeholder="......."
                 className='mt-2'
                 type='password'
+                size="md"
+                radius={10}
             />
             <TextInput
                 withAsterisk
@@ -32,6 +36,8 @@ const Security = () => {
                 placeholder="......."
                 className='mt-2'
                 type='password'
+                size="md"
+                radius={10}
             />
         </div>
         <div className="mobile-number pt-3">
@@ -44,6 +50,8 @@ const Security = () => {
                         label="Country code"
                         placeholder="1"
                         type='number'
+                        size="md"
+                        radius={10}
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:8, sm: 7, lg: 7 }}>
@@ -51,11 +59,14 @@ const Security = () => {
                         withAsterisk
                         label="Mobile Number"
                         placeholder="123"
+                        size="md"
+                        radius={10}
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:12 ,sm: 2, lg: 2 }}>
                     <Group justify="flex-end" mt="lg">
-                        <Button type="submit">Verify Number Now</Button>
+                        <Button type="submit"  size="md"
+                        radius={10}>Verify Number Now</Button>
                     </Group>
                 </Grid.Col>
             </Grid>
@@ -64,7 +75,8 @@ const Security = () => {
         <div className="two-factor mt-3">
             <h5 className='font-18 text-heading'>Two Factor Authentication (Recommended)</h5>
             <p className='font-14 font-weight-500 text-gray'>Add your 2 factor autentication for account advanced login security.</p>
-            <Button onClick={open}>Add 2 Factor Authentication Now</Button>
+            <Button onClick={open}  size="md"
+                        radius={10}>Add 2 Factor Authentication Now</Button>
             <p className='font-14 font-weight-500 text-gray mt-2'>Change or Remove 2 factor authentication</p>
         </div>
     </div>

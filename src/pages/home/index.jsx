@@ -3,6 +3,7 @@ import SimplePage from "../../components/SimplePage";
 import { Tabs } from "@mantine/core";
 import AllCategories from "./AllCategories";
 import "./style.css";
+import classes  from "../../styles/Tabs.module.css"
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("all categories");
@@ -13,10 +14,10 @@ const Home = () => {
         defaultValue="all categories"
         value={activeTab}
         onChange={setActiveTab}
-
+        className={classes}
       >
         <Tabs.List>
-          <Tabs.Tab value="all categories" className="active-tab mb-25">
+          <Tabs.Tab value="all categories" className="mb-25">
             All Categories
           </Tabs.Tab>
           <Tabs.Tab value="recommended" className="mb-25">

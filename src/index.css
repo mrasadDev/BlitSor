@@ -35,6 +35,12 @@ img {
   border-radius: 8px;
 }
 
+.pink-btn2 {
+  background-color: #FFE6EC;
+  color: #FF0045;
+  border-radius: 8px;
+}
+
 .whiteBtn {
   margin-top: 24px;
   border: 1px solid #c9c6c6;
