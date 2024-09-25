@@ -1,0 +1,8 @@
+.card {
+    background-color: #E5E7EB80;
+    cursor: pointer;
+  }
+  
+  .avatar {
+    border: rem(2px) solid var(--mantine-color-body);
+  }

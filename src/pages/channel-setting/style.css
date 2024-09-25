@@ -1,0 +1,77 @@
+img {
+    max-width: 100%;
+}
+
+.about-channel-box, .channel-theme-box, .security-box {
+    border-top: 8px solid #FFB0C5;
+    background-color: #fff;
+}
+
+.profile-name span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #FF0045;
+    background-color: #FFE6EC;
+    padding: 4px 8px;
+    border-radius: 50px;
+}
+
+.profile-pic img {
+    width: 96px;
+    height: 96px;
+    border: 4px solid #ffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.upload-banner, .add-watermark {
+    border: 3px dotted #FF004533;
+    background-color: #FFE6EC33;
+    padding: 50px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.add-watermark {
+    padding: 66px 50px;
+    height: 232px;
+}
+
+.add-watermark {
+    position: relative;
+}
+
+.add-watermark img {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.theme-color .plus-icon {
+    color: #fff;
+    background-color: #FF0045;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 6px;
+}
+
+.about-channel-box .mantine-Grid-inner,
+.mobile-number .mantine-Grid-inner {
+    align-items: center;
+}
+
+.url-inputs input {
+    background-color: #FFE6EC;
+    border: 1px solid #FF0045;
+}
+
+.url-inputs ::placeholder {
+    color: #FF0045;
+}
+
+@media (min-width: 768px) {
+    .upload-banner {
+        padding: 126px 50px;
+    }
+}

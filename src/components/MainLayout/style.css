@@ -1,0 +1,32 @@
+.logo{
+    padding-left: 30px;
+    padding-top: 28px;
+    color: #FF0045;
+    font-family: "Varela Round", sans-serif;
+    font-size: 30.43px;
+    font-weight: 400;
+    line-height: 27.66px;
+    letter-spacing: 2.766355276107788px;
+    text-align: left;
+  }
+  .search-bar{
+    margin-left: 5vw;
+    margin-top: 23px;
+    width: 38vw;
+  }
+  
+  .m_38a85659{
+    border-radius: 10px;
+  }
+  .m_390b5f4{
+    font-size: 16px;
+    padding-top: 8px;
+    font-weight: 480;
+  }
+
+  
+  @media only screen and (max-width: 992px) {
+    .search-bar{
+      margin-right: 3rem;
+    }
+  }

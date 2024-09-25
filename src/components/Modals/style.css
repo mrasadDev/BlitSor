@@ -1,0 +1,105 @@
+
+
+.upload-modal .mantine-Modal-body {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.upload-modal .upload-section {
+  border: 1px dotted #ff0045;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 8px;
+  background-color: #ffe6ec80;
+}
+
+.upload-modal .upload-section img {
+  width: 50px;
+  height: 50px;
+}
+
+.upload-modal p {
+  font-size: 14px;
+  color: #6d6d6d;
+}
+
+.full-btn {
+  width: 100vh;
+}
+
+.proceesing {
+  width: 617px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.proceesing .mantine-Stepper-step {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.proceesing .mantine-Stepper-stepBody {
+  margin-top: 10px;
+  margin-left: 0;
+  position: relative;
+}
+
+.proceesing .mantine-Stepper-stepBody span {
+  font-size: 12px !important;
+}
+
+.mantine-DatePickerInput-calendarHeader svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.mantine-Stepper-stepIcon {
+    min-width: 30px !important;
+    min-height: 30px !important;
+    background: transparent;
+    border: none !important;
+    width: 30px;
+    height: 30px !important;
+}
+.m_a79331dc {
+    color: #ff0045 !important;
+}
+
+.upload-file {
+    background-color: #FFE6EC80;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px dotted #ff0045;
+    height: 126px;
+}
+
+.thumbnail-size img {
+    border-radius: 12px;
+}
+
+.upload-file h6 {
+    color: #ff0045;
+    font-size: 14px;
+}
+
+.video-tags {
+    border: 1px solid #D0D5DD;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.video-tags li {
+    background-color: #6B7280;
+    color: #fff;
+    border-radius: 16px;
+    padding: 2px 8px;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

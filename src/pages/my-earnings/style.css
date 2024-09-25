@@ -1,0 +1,13 @@
+.earning-box {
+    box-shadow: 0px 1px 3px 0px #1018280F;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+.earning-box h3 {
+    font-size: 38px;
+    line-height: 44px;
+    font-weight: 600;
+    color: #101828;
+}

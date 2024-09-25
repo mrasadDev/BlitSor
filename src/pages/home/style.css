@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+[data-mantine-color-scheme="light"] .m_89d60db1 {
+  --tab-border-color: transparent;
+}
+
+.mantine-Tabs-tabLabel {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2px;
+  text-align: left;
+}
+
+.active-tab {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2px;
+  text-align: left;
+  color: #ff0045;
+}
+
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+.page-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: left;
+}
+
+.video-section-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: left;
+  margin-top: 3rem;
+}
+
+.thomas {
+  position: relative;
+  background-color: #f87171;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.mike {
+  position: relative;
+  background-color: #f87171;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.thomas img{
+  width: 100%;
+}
+
+.mike img{
+  width: 100%;
+}

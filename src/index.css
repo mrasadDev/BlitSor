@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+figure {
+  margin-bottom: 0 !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.text-secondary {
+  color: #667085;
+}
+
+.whiteBtn {
+  margin-top: 24px;
+  border: 1px solid #c9c6c6;
+  background-color: #fff;
+  color: #344054;
+  padding: 5px 30px;
+  border-radius: 8px;
+  margin-right: 1.5vw;
+}
+
+.redBtn {
+  margin-top: 24px;
+  background: #ff0045;
+  color: #fff;
+  padding: 5px 30px;
+  border-radius: 8px;
+  margin-right: 1vw;
+  font-weight: 400;
+}
+
+.mb- {
+  margin-top: 1px;
+}
+
+.login-btns {
+  display: inline;
+  margin-bottom: 2rem;
+}
+
+.toggle-btn {
+  display: none;
+}
+
+.padding {
+  padding: 3px 70px;
+  margin-right: 1rem;
+}
+
+.mr {
+  margin-right: 0rem;
+}
+
+.toggle-button {
+  margin-top: 1.8rem;
+  margin-right: 4vw;
+  margin-left: 0.6vw;
+}
+
+.logout-User {
+  display: inline-block;
+  background-color: #ffe6ec;
+  padding: 9px;
+  border-radius: 20px;
+  margin-right: 0.8rem;
+}
+
+.lock-icon {
+  padding: 13px;
+  border-radius: 28px;
+  margin-bottom: 0.5rem;
+}
+
+.loggedUser {
+  margin-right: 1rem;
+}
+
+.title {
+  color: #667085;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.company-logo {
+  display: none;
+}
+
+.image-title {
+  margin-top: 1rem;
+}
+
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1rem;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.channelTitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #34373c;
+  margin-top: .8rem;
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 992px) {
+  .toggle-button {
+    display: none;
+  }
+  .sign_in {
+    margin-right: 1rem;
+  }
+  .login-btns {
+    display: none;
+  }
+ 
+  .company-logo {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .toggle-btn {
+    display: block;
+  }
+  .search-bar {
+    display: none;
+  }
+}

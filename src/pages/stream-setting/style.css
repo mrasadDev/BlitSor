@@ -1,0 +1,30 @@
+.stream-setting-boxes {
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 #1018281A;
+    transition: all .3s ease;
+}
+
+.stream-setting-boxes:hover {
+    background-color: #ff0045;
+}
+
+.stream-setting-boxes h6 {
+    transition: all .3s ease;
+    text-transform: uppercase;
+}
+
+.stream-setting-boxes:hover h6 {
+    color: #fff;
+}
+
+.flash-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #FFE6EC;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff0045;
+}
