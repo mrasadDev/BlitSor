@@ -14,8 +14,25 @@ img {
   max-width: 100%;
 }
 
+.text-14 {
+  font-size: 14px;
+}
+
 .text-secondary {
   color: #667085;
+}
+
+.sub-heading {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+}
+
+.pink-btn {
+  background-color: #FFE6EC;
+  color: #FF0045;
+  border: 1px solid #ff0045;
+  border-radius: 8px;
 }
 
 .whiteBtn {
