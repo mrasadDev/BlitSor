@@ -93,6 +93,11 @@ img {
     text-align: start;
   }
   
+.b-bt{
+  border-bottom: 1px solid #cccc;
+  width: 11vw;
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
   .upload-banner {

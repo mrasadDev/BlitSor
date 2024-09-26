@@ -31,7 +31,7 @@ const index = () => {
           <ChannelTheme />
         </Tabs.Panel>
         <Tabs.Panel value="three" pt="xs">
-          Featured
+         Coming Soon!
         </Tabs.Panel>
         <Tabs.Panel value="four" pt="xs">
           <Security />
