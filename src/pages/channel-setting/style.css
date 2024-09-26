@@ -99,6 +99,18 @@ img {
   cursor: pointer;
 }
 
+.b-b{
+  border-bottom: 1px solid #cccc;
+  width: 18vw;
+  cursor: pointer;
+}
+
+.b-bb{
+  border-bottom: 1px solid #cccc;
+  width: 12vw;
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .upload-banner {
     padding: 126px 50px;
