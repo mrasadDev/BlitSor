@@ -7,7 +7,6 @@ import classes from "../../styles/Tabs.module.css";
 import Videos from "./Videos";
 
 const Media = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [activeTab, setActiveTab] = useState("videos");
 
   return (
@@ -18,7 +17,7 @@ const Media = () => {
         defaultValue="videos"
         value={activeTab}
         onChange={setActiveTab}
-        className={classes.tab}
+        classNames={classes}
       >
         <Tabs.List className="mb-25">
           <Tabs.Tab value="videos">Videos</Tabs.Tab>

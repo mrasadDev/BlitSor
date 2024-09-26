@@ -5,14 +5,15 @@ import AboutChannel from './AboutChannel';
 import ChannelTheme from './ChannelTheme';
 import Security from './Security';
 import "./style.css";
+import classes from "../../styles/Tabs.module.css";
 
 const index = () => {
   return (
     <SimplePage>
       <Text className='page-title'>Channel settings</Text>
-        <Divider className='mt-3' />
+        <Divider className='mt-3 mb-3' />
 
-      <Tabs defaultValue="AboutChannel" className='mt-3'>
+      <Tabs defaultValue="AboutChannel" classNames={classes}>
         <Tabs.List>
           <Tabs.Tab value="AboutChannel" color="blue">About Channel</Tabs.Tab>
           <Tabs.Tab value="second" color="blue">

@@ -14,7 +14,7 @@ const Home = () => {
         defaultValue="all categories"
         value={activeTab}
         onChange={setActiveTab}
-        className={classes}
+        classNames={classes}
       >
         <Tabs.List>
           <Tabs.Tab value="all categories" className="mb-25">

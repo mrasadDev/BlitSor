@@ -36,21 +36,21 @@ const AboutChannel = () => {
         <p className='font-14 font-weight-500 text-gray'>Manage your profile settings easily!</p>
         <div className="form">
             <Grid>
-                <Grid.Col span={{ xs:12, sm: 10.2, lg: 10.2 }}>
+                <Grid.Col span={{ xs:12, sm: 10.2, lg: 10.8 }}>
                     <TextInput
                         label="Username"
                         placeholder="SarahJohnson.170"
                         leftSection={iconUser}
                         rightSection={iconCheck}
+                        mt="md"
                         size="md"
                         mb={10}
                         radius={10}
                     />
+                    <Text className='bottom-text'>Username is available</Text>
                 </Grid.Col>
-                <Grid.Col span={{ xs:12 , sm: 1.8, lg: 1.8 }}>
-                    <Group justify="flex-end" mt="md">
+                <Grid.Col span={{ xs:12 , sm: 1.8, lg: 1.2 }}>
                         <Button type="submit" radius={10} size="md">Save</Button>
-                    </Group>
                 </Grid.Col>
             </Grid>
             <TextInput
@@ -64,12 +64,12 @@ const AboutChannel = () => {
             />
             <Textarea
                 label="Channel bio"
-                placeholder="Welcome to my stream! i am Sarah and today i’ll be playing dota 2 on a live stream with my crew, On this channel you see me playing all genre games like GTA V, RDR 2, COD and Stream Games... 
-                Subscribe and Follow now for more updates...Cheers"
+                placeholder="Welcome to my stream! i am Sarah and today i’ll be playing dota 2 on a live stream with my crew, On this channel you see me playing all genre games like GTA V, RDR 2, COD and Stream Games... Subscribe and Follow now for more updates...Cheers"
                 className='mt-2'
                 size='xl'
                 mb={10}
                 radius={10}
+                classNames={{ input: 'custom-input-text-area' }}
             />
             <TextInput
                 label="Language (required)"
@@ -105,6 +105,8 @@ const AboutChannel = () => {
                         placeholder="http://facebook.com/"
                         size="md"
                         radius={10}
+                        classNames={{ input: 'custom-input' }}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:8, sm: 7, lg: 7 }}>
@@ -114,6 +116,7 @@ const AboutChannel = () => {
                         leftSection={iconUser}
                         size="md"
                         radius={10}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:12 ,sm: 2, lg: 2 }}>
@@ -130,6 +133,8 @@ const AboutChannel = () => {
                         placeholder="http://twitter.com/"
                         size="md"
                         radius={10}
+                        classNames={{ input: 'custom-input' }}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:8, sm: 7, lg: 7 }}>
@@ -139,6 +144,7 @@ const AboutChannel = () => {
                         leftSection={iconUser}
                         size="md"
                         radius={10}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:12 ,sm: 2, lg: 2 }}>
@@ -155,6 +161,8 @@ const AboutChannel = () => {
                         placeholder="http://instagram.com/"
                         size="md"
                         radius={10}
+                        classNames={{ input: 'custom-input' }}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:8, sm: 7, lg: 7 }}>
@@ -164,6 +172,7 @@ const AboutChannel = () => {
                         leftSection={iconUser}
                         size="md"
                         radius={10}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:12 ,sm: 2, lg: 2 }}>
@@ -180,6 +189,8 @@ const AboutChannel = () => {
                         placeholder="http://tiktok.com/"
                         size="md"
                         radius={10}
+                        classNames={{ input: 'custom-input' }}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:8, sm: 7, lg: 7 }}>
@@ -189,6 +200,7 @@ const AboutChannel = () => {
                         leftSection={iconUser}
                         size="md"
                         radius={10}
+                        mb={10} 
                     />
                 </Grid.Col>
                 <Grid.Col span={{ xs:12 ,sm: 2, lg: 2 }}>
