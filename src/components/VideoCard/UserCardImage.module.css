@@ -1,8 +1,22 @@
 .card {
-    background-color: #E5E7EB80;
-    cursor: pointer;
-  }
-  
-  .avatar {
-    border: rem(2px) solid var(--mantine-color-body);
-  }
+  background-color: #e5e7eb80;
+  cursor: pointer;
+}
+
+.avatar {
+  border: rem(2px) solid var(--mantine-color-body);
+}
+
+.videoTime {
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  background-color: rgba(36, 39, 48, 1);
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 8px;
+}
+
+.videoTime p {
+  font-size: 10px;
+}

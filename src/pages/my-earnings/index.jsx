@@ -1,12 +1,27 @@
-import { Text, Divider, Grid } from "@mantine/core";
+import { Text, Divider, Grid, Menu, Button, rem } from "@mantine/core";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import SimplePage from "../../components/SimplePage";
 import FileBtn from "../../components/file-button/FileBtn";
-import "./style.css";
 import { IoArrowUpOutline } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { PieChart } from "@mantine/charts";
+import { FaChevronDown } from "react-icons/fa";
+import "./style.css";
+
+import {
+  IconSettings,
+  IconPhoto,
+  IconMessageCircle,
+} from "@tabler/icons-react";
 
 const index = () => {
+  const data = [
+    { name: "USA", value: 400, color: "indigo.6" },
+    { name: "India", value: 300, color: "yellow.6" },
+    { name: "Japan", value: 300, color: "teal.6" },
+    { name: "Other", value: 200, color: "gray.6" },
+  ];
+
   return (
     <>
       <SimplePage>
@@ -31,9 +46,92 @@ const index = () => {
               All Videos <MdKeyboardArrowDown />
             </h4>
           </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 6, lg: 6 }}></Grid.Col>
+          <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
+            <div className="d-flex justify-content-end">
+              <div className="for-wrap">
+                <Menu shadow="md" width={200}>
+                  <Text className="sub-heading mb-2">SHOW DATA</Text>
+                  <Menu.Target>
+                    <Button className="whiteBtn hover-white mt-0">
+                      Everything <FaChevronDown />
+                    </Button>
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    <Menu.Label>Application</Menu.Label>
+                    <Menu.Item
+                      leftSection={
+                        <IconSettings
+                          style={{ width: rem(14), height: rem(14) }}
+                        />
+                      }
+                    >
+                      Settings
+                    </Menu.Item>
+                    <Menu.Item
+                      leftSection={
+                        <IconMessageCircle
+                          style={{ width: rem(14), height: rem(14) }}
+                        />
+                      }
+                    >
+                      Messages
+                    </Menu.Item>
+                    <Menu.Item
+                      leftSection={
+                        <IconPhoto
+                          style={{ width: rem(14), height: rem(14) }}
+                        />
+                      }
+                    >
+                      Gallery
+                    </Menu.Item>
+                  </Menu.Dropdown>
+                </Menu>
+              </div>
+              <div className="for-wrap">
+                <Menu shadow="md" width={200}>
+                  <Text className="sub-heading mb-2">TIME PERIOD</Text>
+                  <Menu.Target>
+                    <Button className="whiteBtn hover-white mt-0">
+                      Last Week <FaChevronDown />
+                    </Button>
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    <Menu.Label>Application</Menu.Label>
+                    <Menu.Item
+                      leftSection={
+                        <IconSettings
+                          style={{ width: rem(14), height: rem(14) }}
+                        />
+                      }
+                    >
+                      Last Month
+                    </Menu.Item>
+                    <Menu.Item
+                      leftSection={
+                        <IconMessageCircle
+                          style={{ width: rem(14), height: rem(14) }}
+                        />
+                      }
+                    >
+                      Last 6 Months
+                    </Menu.Item>
+                    <Menu.Item
+                      leftSection={
+                        <IconPhoto
+                          style={{ width: rem(14), height: rem(14) }}
+                        />
+                      }
+                    >
+                      Last Year
+                    </Menu.Item>
+                  </Menu.Dropdown>
+                </Menu>
+              </div>
+            </div>
+          </Grid.Col>
         </Grid>
-        <Grid>
+        <Grid className="mb-3">
           <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
             <div className="earning-box">
               <div className="d-flex align-items-center justify-content-between">
@@ -92,6 +190,60 @@ const index = () => {
                   13%
                 </span>
               </div>
+            </div>
+          </Grid.Col>
+        </Grid>
+        <Grid>
+          <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 4 }}>
+            <div className="earning-box chart">
+              <div className="d-flex align-items-center justify-content-between">
+                <Text>Monthly Earnings</Text>
+                <div className="for-wrap">
+                  <Menu shadow="md" width={200}>
+                    <Menu.Target>
+                      <Button className="rounded-5 p-2 whiteBtn hover-white me-0 mt-0">
+                        Weekly <FaChevronDown />
+                      </Button>
+                    </Menu.Target>
+                    <Menu.Dropdown>
+                      <Menu.Item
+                        leftSection={
+                          <IconSettings
+                            style={{ width: rem(14), height: rem(14) }}
+                          />
+                        }
+                      >
+                        Settings
+                      </Menu.Item>
+                      <Menu.Item
+                        leftSection={
+                          <IconMessageCircle
+                            style={{ width: rem(14), height: rem(14) }}
+                          />
+                        }
+                      >
+                        Messages
+                      </Menu.Item>
+                      <Menu.Item
+                        leftSection={
+                          <IconPhoto
+                            style={{ width: rem(14), height: rem(14) }}
+                          />
+                        }
+                      >
+                        Gallery
+                      </Menu.Item>
+                    </Menu.Dropdown>
+                  </Menu>
+                </div>
+              </div>
+              <PieChart
+                withLabelsLine
+                labelsPosition="outside"
+                labelsType="value"
+                withLabels
+                data={data}
+              />
             </div>
           </Grid.Col>
         </Grid>

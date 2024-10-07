@@ -1,9 +1,9 @@
 import { Grid, ScrollArea, Text } from "@mantine/core";
 import VideoCard from "../../components/VideoCard";
 import ShortCard from "../../components/ShortCard";
-import "./style.css";
 import { watchedVideosData } from "../../data/WatchedVideos";
 import { shortsData } from "../../data/Categories";
+import "./style.css";
 
 const AllCategories = () => {
   return (
@@ -26,14 +26,14 @@ const AllCategories = () => {
         {watchedVideosData.map((data) => {
           return (
             <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={data.id}>
-              <Grid>
-                
-              </Grid>
+              <Grid></Grid>
               <VideoCard
                 bgImg={data.bgImg}
                 channelTitle={data.channelTitle}
+                channelName={data.channelName}
                 cardTitle={data.cardTitle}
                 views={data.views}
+                videoTime={data.videoTime}
               />
             </Grid.Col>
           );
@@ -45,10 +45,17 @@ const AllCategories = () => {
       <ScrollArea
         style={{ width: "100%" }}
         type="hover"
-        scrollbarSize={10}
+        scrollbarSize={5}
         offsetScrollbars
       >
-        <div style={{ display: "flex", marginTop: 30, gap: "10px", cursor:"pointer" }}>
+        <div
+          style={{
+            display: "flex",
+            marginTop: 30,
+            gap: "10px",
+            cursor: "pointer",
+          }}
+        >
           {shortsData.map((data) => (
             <div key={data.id} style={{ flex: "0 0 270px" }}>
               <ShortCard

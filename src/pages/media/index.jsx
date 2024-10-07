@@ -1,8 +1,8 @@
 import { useState } from "react";
 import SimplePage from "../../components/SimplePage";
 import { Tabs, Divider, Text } from "@mantine/core";
-import "./style.css";
 import classes from "../../styles/Tabs.module.css";
+import "./style.css";
 
 import Videos from "./Videos";
 
