@@ -1,31 +1,48 @@
 import { Button, FileButton, Group, Text } from "@mantine/core";
 import { FaPlus } from "react-icons/fa";
 import { Grid } from "@mantine/core";
-import UploadBanner from "../../components/Modals/UploadBanner";
-import AddWatermark from "../../components/Modals/AddWatermark";
-import { useDisclosure } from "@mantine/hooks";
-import { BannerImages } from "../../data/BannerImages";
+import { useState } from "react";
 
 const ChannelTheme = () => {
-  const [BannerPopOpened, { open: BannerPopOpen, close: BannerPopClose }] =
-    useDisclosure(false);
+  const [preview, setPreview] = useState(null);
+  const [previewBanner, setPreviewBanner] = useState(null);
+  const [previewWatermark, setPreviewWatermark] = useState(null);
 
-  const [
-    WatermarkPopOpened,
-    { open: WatermarkPopOpen, close: WatermarkPopClose },
-  ] = useDisclosure(false);
+  const handleFileChange = (selectedFile) => {
+
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
+  const handleFileBannerChange = (selectedFile) => {
+
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewBanner(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
+  const handleWatermarkChange = (selectedFile) => {
+
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewWatermark(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
   return (
     <>
-      <UploadBanner
-        BannerPopOpened={BannerPopOpened}
-        BannerPopClose={BannerPopClose}
-      />
-
-      <AddWatermark
-        WatermarkPopOpened={WatermarkPopOpened}
-        WatermarkPopClose={WatermarkPopClose}
-      />
-
       <div className="channel-theme-box p-4 mt-3">
         <div className="channel-theme-heading mb-3">
           <h5 className="font-18 text-heading">Channel Theme Settings</h5>
@@ -34,19 +51,22 @@ const ChannelTheme = () => {
           </p>
         </div>
         <div className="channel-theme-profile d-flex align-items-center">
-          <figure className="profile-pic">
-            <img
-              src="images/About-Channel-Porfile.png"
-              alt="img"
-              className="me-4"
-            />
-          </figure>
+          <div className="profile-img">
+            {preview && (
+              <figure className="profile-pic">
+                <img src={preview} alt="img" />
+              </figure>
+            )}
+          </div>
           <div className="chennel-add-profile">
             <p className="font-14 font-weight-500 text-gray">
               Must be JPEG, PNG, or GIF and cannot exceed 10MB.
             </p>
             <Group justify="start">
-              <FileButton accept="image/png,image/jpeg,video/mp4">
+              <FileButton
+                onChange={handleFileChange}
+                accept="image/png,image/jpeg"
+              >
                 {(props) => (
                   <Button {...props} size="md" radius={10}>
                     Add Profile Picture
@@ -59,30 +79,46 @@ const ChannelTheme = () => {
         <div className="upload-custome-banner mt-4">
           <h5 className="font-18 text-heading">Channel Banner</h5>
           <p className="font-14 font-weight-500 text-gray">
-            Add your mobile number for account backup & recovery.
+            The Banner must be JPEG, PNG, or GIF and cannot exceed 10MB.
           </p>
           <div className="upload-banner">
             <h5 className="font-18 text-heading">Upload Custom Banner</h5>
             <p className="font-14 font-weight-500 text-gray">
-              The Banner must be JPEG, PNG, or GIF and cannot exceed 10MB.
+              Must be JPEG, PNG, or GIF and cannot exceed 10MB.
             </p>
-            <Button onClick={BannerPopOpen}>
-              <FaPlus className="me-1" /> Upload Banner
-            </Button>
+            <Group justify="center">
+              <FileButton
+                onChange={handleFileBannerChange}
+                accept="image/png,image/jpeg"
+              >
+                {(props) => (
+                  <Button {...props} size="md" radius={10}>
+                    <FaPlus className="me-1" /> Upload Banner
+                  </Button>
+                )}
+              </FileButton>
+            </Group>
           </div>
-          <div className="images mt-3">
-            {BannerImages.map((data) => {
-              return (
-                <figure key={data.id}>
-                  <img src={data.img} alt="img" />
-                </figure>
-              );
-            })}
+          <div className="banner-img mt-3">
+            {previewBanner && (
+              <figure className="banner-img1">
+                <img
+                  src={previewBanner}
+                  alt="Banner Preview"
+                  style={{
+                    width: "100%",
+                    height: "349px",
+                    objectFit: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+              </figure>
+            )}
           </div>
         </div>
         <Text className="title b-bt" size="sm" mb={10}>
           Remove or change banner
-            </Text>
+        </Text>
         <div className="theme-color mt-4">
           <h5 className="font-18 text-heading">Profile Theme Color</h5>
           <p className="font-14 font-weight-500 text-gray">
@@ -107,24 +143,40 @@ const ChannelTheme = () => {
                   Add Brand Water which must be JPEG, PNG, or GIF and cannot
                   exceed 10MB.
                 </p>
-                <Button onClick={WatermarkPopOpen}>
-                  <FaPlus className="me-1" /> Add Watermark
-                </Button>
+                <Group justify="center">
+              <FileButton
+                onChange={handleWatermarkChange}
+                accept="image/png,image/jpeg"
+              >
+                {(props) => (
+                  <Button {...props} size="md" radius={10}>
+                    <FaPlus className="me-1" /> Upload Banner
+                  </Button>
+                )}
+              </FileButton>
+            </Group>
               </div>
             </Grid.Col>
           </Grid>
-          <Grid>
-            <Grid.Col span={{ xs: 12, sm: 6, md: 5, lg: 5 }}>
-              <div className="add-watermark">
-                <figure>
-                  <img src="images/watermark.png" alt="img" />
-                </figure>
-              </div>
-            </Grid.Col>
-          </Grid>
+          <div className="watermark-img mt-3">
+            {previewWatermark && (
+              <figure className="banner-img1">
+                <img
+                  src={previewWatermark}
+                  alt="Banner Preview"
+                  style={{
+                    width: "100%",
+                    height: "300px",
+                    objectFit: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
+              </figure>
+            )}
+          </div>
           <Text className="title b-bt" size="sm" mb={10}>
-          Remove Brand Watermark
-            </Text>
+            Remove Brand Watermark
+          </Text>
         </div>
       </div>
     </>

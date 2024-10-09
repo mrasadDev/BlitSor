@@ -92,7 +92,7 @@
 
 .video-tags {
   border: 1px solid #d0d5dd;
-  padding: 8px;
+  padding: 8px 0;
   border-radius: 8px;
 }
 
@@ -110,9 +110,13 @@
 .thumbnail-img {
   position: relative;
   border-radius: 12px;
+  height: 122px;
+
 }
 
 .thumbnail-img img {
+  height: 122px;
+  width: 100%;
   border-radius: 12px;
 }
 
@@ -126,12 +130,13 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   width: 100%;
-  opacity: 0;
-}
-
-.thumbnail-img:hover::after {
+  /* opacity: 0; */
   opacity: 1;
 }
+
+/* .thumbnail-img:hover::after {
+  opacity: 1;
+} */
 
 .thumbnail-img h5 {
   position: absolute;
@@ -141,12 +146,44 @@
   z-index: 1;
   transition: all 0.3s ease;
   transform: translate(-50%, 5px);
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  transform: translate(-50%, -35px);
+  /* opacity: 0;
+  visibility: hidden; */
 }
 
-.thumbnail-img:hover h5 {
+ .thumbnail-img:hover h5 {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -35px);
+}
+
+.verification{
+  text-align: center;
+}
+
+.verification input {
+  width: 80px !important;
+  height: 80px;
+  border-radius: 8px;
+  border: 1px solid #D6BBFB;
+  outline: #D6BBFB;
+  margin-right: 10px;
+  font-size: 48px;
+  font-weight: 600;
+  color: #FF0045;
+}
+
+.telephone-icon {
+width: 48px;
+height: 48px;
+margin: 0 auto;
+background-color: #FF004514;
+padding: 10px;
+border-radius: 50%;
+color: #ff0045;
+}
+
+.verification div {
+justify-content: center;
 }

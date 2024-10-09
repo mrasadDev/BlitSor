@@ -1,6 +1,6 @@
 export const BannerImages = [
     {
-        id:1,
+        id:0,
         img: "/images/uploaded-banner.png" ,
     },
 ]

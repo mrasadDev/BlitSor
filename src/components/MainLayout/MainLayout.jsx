@@ -18,6 +18,7 @@ import SignUpModal from "../Modals/SignUpModal";
 import ToggleMenu from "../ToggleMenu";
 import "./style.css";
 import { useState } from "react";
+import EmailVerification from "../Modals/EmailVerification";
 
 export function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
@@ -27,6 +28,7 @@ export function MainLayout() {
     useDisclosure(false);
   const [navBar, setNavBar] = useState(false);
   const navigate = useNavigate();
+  const [emailOpened, {open: emailOpen, close: emailClose}] = useDisclosure(false);
 
   const iconSearch = (
     <>
@@ -67,6 +69,7 @@ export function MainLayout() {
         collapsed: { mobile: !opened },
       }}
     >
+      <EmailVerification opened={emailOpened} closed={emailClose} />
       <AppShell.Header zIndex={200}>
         <div className="d-flex justify-content-between pr-5">
           <Burger
@@ -113,6 +116,7 @@ export function MainLayout() {
               size={22}
               className="toggle-button"
               cursor="pointer"
+              onClick={emailOpen}
             />
           </div>
           <div className="toggle-btn mr-5"></div>

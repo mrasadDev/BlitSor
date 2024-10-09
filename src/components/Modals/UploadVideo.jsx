@@ -1,10 +1,11 @@
-import { Grid, Modal, Text, Button } from "@mantine/core";
+import { Grid, Modal, Text, Button, FileButton, Image } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import "./style.css";
-import FileBtn from "../file-button/FileBtn";
 import VideoProcess from "./VideoProcess";
+import { useState } from "react";
 
 const UploadVideo = ({ VideoPopOpened, videoPopClose }) => {
+  const [file, setFile] = useState(null);
   const [
     VideoProcessOpened,
     { open: VideoProcessOpen, close: VideoProcessClose },
@@ -13,9 +14,28 @@ const UploadVideo = ({ VideoPopOpened, videoPopClose }) => {
     videoPopClose();
     VideoProcessOpen();
   };
+
+  const [preview, setPreview] = useState(null);
+
+  const handleFileChange = (selectedFile) => {
+    setFile(selectedFile);
+
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
   return (
     <>
-      <VideoProcess opened={VideoProcessOpened} closed={VideoProcessClose} />
+      <VideoProcess
+        opened={VideoProcessOpened}
+        closed={VideoProcessClose}
+        selectedVideo={preview}
+      />
       <Modal
         className="upload-modal"
         opened={VideoPopOpened}
@@ -33,7 +53,12 @@ const UploadVideo = ({ VideoPopOpened, videoPopClose }) => {
           </figure>
           <Text>Drag your file(s) to start uploading</Text>
           <span className="text-secondary d-block">OR</span>
-          <FileBtn title="Browse File" width={false} justify="center" />
+          <FileButton
+            accept="image/png,image/jpeg,video/mp4"
+            onChange={handleFileChange}
+          >
+            {(props) => <Button {...props}>Browse File</Button>}
+          </FileButton>
         </div>
         <Text className="mt-2">
           Only support .mp4, .mkv and .webm files can be uploaded.

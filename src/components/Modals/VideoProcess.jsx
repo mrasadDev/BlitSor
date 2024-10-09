@@ -10,18 +10,21 @@ import {
   Grid,
   FileButton,
   Group,
+  MultiSelect,
+  Select,
 } from "@mantine/core";
 import { IconCircleCheck } from "@tabler/icons-react";
 import { FaDotCircle } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
 import { CiCalendar } from "react-icons/ci";
 import { TbLocation } from "react-icons/tb";
 import { MdOutlineCategory } from "react-icons/md";
-import { Radio, Stack, Checkbox, ScrollArea } from "@mantine/core";
+import { Radio, Stack, Checkbox } from "@mantine/core";
 import ReactPlayer from "react-player";
 import "./style.css";
+import { DatePickerInput } from "@mantine/dates";
+import TagInput from "../TagInput"
 
-const VideoProcess = ({ opened, closed }) => {
+const VideoProcess = ({ opened, closed, selectedVideo }) => {
   const [active, setActive] = useState(0);
   const nextStep = () =>
     setActive((current) => (current < 1 ? current + 1 : current));
@@ -47,6 +50,26 @@ const VideoProcess = ({ opened, closed }) => {
       />
     </>
   );
+  const [files, setFiles] = useState([]);
+  const [previews, setPreviews] = useState([]);
+
+  const handleFileChange = (selectedFiles) => {
+    console.log(selectedFiles);
+    setFiles([...files, ...selectedFiles]);
+
+    Promise.all(
+      Array.from(selectedFiles).map(
+        (file) =>
+          new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(file);
+          })
+      )
+    ).then((results) => {
+      setPreviews([...previews, ...results]);
+    });
+  };
 
   return (
     <>
@@ -74,23 +97,19 @@ const VideoProcess = ({ opened, closed }) => {
               label="Video details"
               description="Please provide your video details"
             >
-              <ScrollArea
-                style={{ width: "100%" }}
-                type="hover"
-                scrollbarSize={5}
-                offsetScrollbars
-              >
-                <ReactPlayer
-                  className="video-player"
-                  url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                />
-              </ScrollArea>
+              <ReactPlayer
+                className="video-player"
+                url={selectedVideo}
+                controls={true}
+                style={{ borderRadius: "20px" }}
+              />
               <TextInput
                 type="text"
                 label="Video Title"
                 placeholder="What’ll be your video title?"
                 radius={10}
                 size="md"
+                mt="md"
               />
               <Textarea
                 type="text"
@@ -102,9 +121,9 @@ const VideoProcess = ({ opened, closed }) => {
               />
               <Grid>
                 <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
-                  <TextInput
+                <DatePickerInput
                     label="Date"
-                    placeholder="Date"
+                    placeholder="Select Day"
                     leftSection={iconCalender}
                     radius={10}
                     size="md"
@@ -122,12 +141,12 @@ const VideoProcess = ({ opened, closed }) => {
                   />
                 </Grid.Col>
               </Grid>
-              <TextInput
-                type="text"
-                label="Video Category"
+              <Select
                 leftSection={categoryIcon}
-                placeholder="Select Catgory"
+                label="Video Category"
+                placeholder="Select Category"
                 radius={10}
+                data={["Software","Web","App"]}
                 size="md"
                 mt="md"
               />
@@ -145,64 +164,57 @@ const VideoProcess = ({ opened, closed }) => {
                       <figure>
                         <img src="images/upload-cloud.svg" alt="..." />
                       </figure>
-                      <h6>Upload file</h6>
+                      <FileButton
+                        accept="image/png,image/jpeg"
+                        onChange={handleFileChange}
+                        multiple
+                      >
+                        {(props) => (
+                          <Button
+                            {...props}
+                            fullWidth
+                            className="upload-btn"
+                            variant="transparent"
+                          >
+                            Upload Files
+                          </Button>
+                        )}
+                      </FileButton>
                     </div>
                   </Grid.Col>
-                  <Grid.Col span={{ base: 6, md: 4, lg: 4 }}>
-                    <div className="thumbnail-img">
-                      <figure>
-                        <img src="images/thumbnail-1.png" alt="..." />
-                      </figure>
-                      <h5>Selected</h5>
-                    </div>
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 6, md: 4, lg: 4 }}>
-                    <div className="thumbnail-img">
-                      <figure>
-                        <img
-                          src="images/thmubnail-2.png"
-                          radius={20}
-                          alt="..."
-                        />
-                      </figure>
-                      <h5>Selected</h5>
-                    </div>
-                  </Grid.Col>
+                    {previews.map((preview, index) => (
+                      <Grid.Col
+                        span={{ base: 12, md: 8, lg: 4 }}
+                        key={index}
+                      >
+                        <div  className="thumbnail-img">
+                          <figure>
+                            <img src={preview} alt={`Image ${index + 1}`} />
+                          </figure>
+                          <h5>Selected {index + 1}</h5>
+                        </div>
+                      </Grid.Col>
+                    ))}
                 </Grid>
               </div>
-              <div className="video-tags-section mb-3">
-                <Text className="sub-heading mb-2">Video Tags</Text>
-                <div className="video-tags">
-                  <ul className="list-unstyled mb-0">
-                    <li>
-                      360 Room Design <RxCross2 />
-                    </li>
-                    <li>
-                      Room Design <RxCross2 />
-                    </li>
-                    <li>
-                      2024 Interior Design <RxCross2 />
-                    </li>
-                    <li>
-                      Best Interior Design
-                      <RxCross2 />
-                    </li>
-                    <li>
-                      DIY Interior <RxCross2 />
-                    </li>
-                    <li>
-                      Rooms Tour <RxCross2 />
-                    </li>
-                    <li>
-                      Interior Ideas <RxCross2 />
-                    </li>
-                    <li>
-                      Interior Solutions <RxCross2 />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <Grid>
+              {/* <MultiSelect
+                label="Video Tags"
+                placeholder=""
+                data={[
+                  "360 Room Design",
+                  " Room Design",
+                  "2024 Interior Design",
+                  "Best Interior Design",
+                  " DIY Interior",
+                  " Rooms Tour",
+                  "Interior Ideas",
+                  "Interior Solutions",
+                ]}
+                size="md"
+                className="mb-4"
+              /> */}
+               <TagInput />
+              <Grid mt={20}>
                 <Grid.Col span={{ base: 6, md: 3, lg: 3 }}>
                   <Text className="sub-heading mb-2">Comments</Text>
                   <div className="d-block">
@@ -251,7 +263,6 @@ const VideoProcess = ({ opened, closed }) => {
                   <Text className="sub-heading mb-2">Audience Type</Text>
                   <Stack>
                     <Radio
-                      checked
                       variant="outline"
                       onChange={() => {}}
                       label="For Everybody"
@@ -271,12 +282,7 @@ const VideoProcess = ({ opened, closed }) => {
                 <Grid.Col span={{ base: 6, md: 3, lg: 3 }}>
                   <Text className="sub-heading mb-2">Altered content</Text>
                   <Stack>
-                    <Radio
-                      checked
-                      variant="outline"
-                      onChange={() => {}}
-                      label="Yes"
-                    />
+                    <Radio variant="outline" onChange={() => {}} label="Yes" />
                     <Radio variant="outline" onChange={() => {}} label="No" />
                     <Radio
                       variant="outline"
@@ -297,7 +303,6 @@ const VideoProcess = ({ opened, closed }) => {
                 </FileButton>
               </Group>
               <Checkbox
-                checked
                 variant="outline"
                 onChange={() => {}}
                 label="I have read the terms and conditions and I hereby accept and agree to the terms and conditions"

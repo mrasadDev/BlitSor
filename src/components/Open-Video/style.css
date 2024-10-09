@@ -37,7 +37,6 @@
 
 .channel-tag {
     border: none;
-    padding-left: 60px;
 }
 
 .video-channel .mantine-Grid-inner {
@@ -89,8 +88,12 @@
     top: 20px;
 } */
 
+.comments{
+    margin-top: 1.5rem;
+}
+
 .recomended-img {
-    width: 130px;
+    width: 10vw;
     object-fit: cover;
 }
 

@@ -35,10 +35,25 @@ img {
   border-radius: 8px;
 }
 
+.mantine-MultiSelect-pill{
+  background-color: #6b7280;
+  color: #fff;
+  font-size: 14px;
+}
+
 .pink-btn2 {
   background-color: #FFE6EC;
   color: #FF0045;
   border-radius: 8px;
+}
+
+.upload-btn {
+  background-color: #FFE6EC;
+  color: #FF0045;
+  border: 1px solid #ff0045;
+  border-radius: 8px;
+  border: none;
+  background-color: transparent;
 }
 
 .whiteBtn {
@@ -49,6 +64,20 @@ img {
   padding: 5px 30px;
   border-radius: 8px;
   margin-right: 1.5vw;
+}
+
+.m_347db0ec{
+  background-color: #6b7280;
+  color: #fff;
+  font-size: 14px;
+  margin-right: 12px;
+  text-transform: capitalize;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.m_86a44da5{
+  color: #fff;
 }
 
 .redBtn {

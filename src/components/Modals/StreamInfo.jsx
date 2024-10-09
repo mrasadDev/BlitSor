@@ -8,6 +8,9 @@ import {
   Textarea,
   TextInput,
   Grid,
+  FileButton,
+  MultiSelect,
+  Select,
 } from "@mantine/core";
 import ReactPlayer from "react-player";
 import { IconCircleCheck } from "@tabler/icons-react";
@@ -20,7 +23,9 @@ import { PiBroadcastFill } from "react-icons/pi";
 import { MdOutlineCategory } from "react-icons/md";
 import { IoLanguage } from "react-icons/io5";
 import { Radio, Stack, Checkbox, ScrollArea } from "@mantine/core";
+import TagInput from "../TagInput"
 import "./style.css";
+import { DatePickerInput, MonthPickerInput, TimeInput } from "@mantine/dates";
 
 const StreamInfo = ({ LiveOpened, livePopClose }) => {
   const [active, setActive] = useState(0);
@@ -65,6 +70,26 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
       <IoLanguage style={{ width: rem(18), height: rem(18), color: "black" }} />
     </>
   );
+  const [files, setFiles] = useState([]);
+  const [previews, setPreviews] = useState([]);
+
+  const handleFileChange = (selectedFiles) => {
+    console.log(selectedFiles);
+    setFiles([...files, ...selectedFiles]);
+
+    Promise.all(
+      Array.from(selectedFiles).map(
+        (file) =>
+          new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(file);
+          })
+      )
+    ).then((results) => {
+      setPreviews([...previews, ...results]);
+    });
+  };
 
   return (
     <>
@@ -93,23 +118,26 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
               description="Please provide your stream details"
             >
               <Text className="sub-heading">Stream Preview</Text>
-              <ScrollArea
+              {/* <ScrollArea
                 style={{ width: "100%" }}
                 type="hover"
                 scrollbarSize={5}
                 offsetScrollbars
-              >
-                <ReactPlayer
-                  className="video-player"
-                  url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                />
-              </ScrollArea>
+              > */}
+              <ReactPlayer
+                className="video-player"
+                url="/videos/video-1.mp4"
+                controls={true}
+                style={{ borderRadius: "20px" }}
+              />
+              {/* </ScrollArea> */}
               <TextInput
                 type="text"
                 label="Video Title"
                 placeholder="What’ll be your video title?"
                 radius={10}
                 size="md"
+                mt="md"
               />
               <Textarea
                 type="text"
@@ -128,12 +156,12 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
                 size="md"
                 mt="md"
               />
-              <TextInput
-                type="text"
+              <Select
                 leftSection={categoryIcon}
                 label="Stream Category"
                 placeholder="Select Catgory"
                 radius={10}
+                data={["Software","Web","App"]}
                 size="md"
                 mt="md"
               />
@@ -145,78 +173,72 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
                       <figure>
                         <img src="images/upload-cloud.svg" alt="..." />
                       </figure>
-                      <h6>Upload file</h6>
+                      <FileButton
+                        accept="image/png,image/jpeg"
+                        onChange={handleFileChange}
+                        multiple
+                      >
+                        {(props) => (
+                          <Button
+                            {...props}
+                            fullWidth
+                            className="upload-btn"
+                            variant="transparent"
+                          >
+                            Upload Files
+                          </Button>
+                        )}
+                      </FileButton>
                     </div>
                   </Grid.Col>
-                  <Grid.Col span={{ base: 6, md: 4, lg: 4 }}>
-                    <div className="thumbnail-img">
-                      <figure>
-                        <img src="images/thumbnail-1.png" alt="..." />
-                      </figure>
-                      <h5>Selected</h5>
-                    </div>
-                  </Grid.Col>
-                  <Grid.Col span={{ base: 6, md: 4, lg: 4 }}>
-                    <div className="thumbnail-img">
-                      <figure>
-                        <img
-                          src="images/thmubnail-2.png"
-                          radius={20}
-                          alt="..."
-                        />
-                      </figure>
-                      <h5>Selected</h5>
-                    </div>
-                  </Grid.Col>
+                    {previews.map((preview, index) => (
+                      <Grid.Col
+                        span={{ base: 12, md: 8, lg: 4 }}
+                        key={index}
+                      >
+                        <div  className="thumbnail-img">
+                          <figure>
+                            <img src={preview} alt={`Image ${index + 1}`} />
+                          </figure>
+                          <h5>Selected {index + 1}</h5>
+                        </div>
+                      </Grid.Col>
+                    ))}
                 </Grid>
               </div>
-              <div className="video-tags-section mb-3">
-                <Text className="sub-heading mb-2">Video Tags</Text>
-                <div className="video-tags">
-                  <ul className="list-unstyled mb-0">
-                    <li>
-                      360 Room Design <RxCross2 />
-                    </li>
-                    <li>
-                      Room Design <RxCross2 />
-                    </li>
-                    <li>
-                      2024 Interior Design <RxCross2 />
-                    </li>
-                    <li>
-                      Best Interior Design
-                      <RxCross2 />
-                    </li>
-                    <li>
-                      DIY Interior <RxCross2 />
-                    </li>
-                    <li>
-                      Rooms Tour <RxCross2 />
-                    </li>
-                    <li>
-                      Interior Ideas <RxCross2 />
-                    </li>
-                    <li>
-                      Interior Solutions <RxCross2 />
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <TextInput
-                type="text"
+              {/* <MultiSelect
+                label="Video Tags"
+                placeholder=""
+                data={[
+                  "360 Room Design",
+                  " Room Design",
+                  "2024 Interior Design",
+                  "Best Interior Design",
+                  " DIY Interior",
+                  " Rooms Tour",
+                  "Interior Ideas",
+                  "Interior Solutions",
+                ]}
+                size="md"
+                className="mb-4"
+              /> */}
+              <TagInput />
+              <Select
                 leftSection={categoryIcon}
-                label="Add to Category"
+                label="Stream Category"
                 placeholder="Select Category"
                 radius={10}
+                data={["Software","Web","App"]}
                 size="md"
                 mt="md"
               />
-              <TextInput
+              <Select
                 type="text"
                 leftSection={languageIcon}
                 label="Stream Language"
-                placeholder="Select Category"
+                placeholder="Select Language"
                 radius={10}
+                data={["English","Urdu","Spanish"]}
                 size="md"
                 mt="md"
               />
@@ -268,7 +290,6 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
             >
               <Text className="sub-heading mb-2">Message Delay</Text>
               <Checkbox
-                checked
                 variant="outline"
                 onChange={() => {}}
                 label="Slow Time"
@@ -283,12 +304,7 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
               />
               <Text className="sub-heading mb-2">Visibility</Text>
               <Stack>
-                <Radio
-                  checked
-                  variant="outline"
-                  onChange={() => {}}
-                  label="Public"
-                />
+                <Radio variant="outline" onChange={() => {}} label="Public" />
                 <Radio variant="outline" onChange={() => {}} label="Private" />
                 <Radio
                   variant="outline"
@@ -299,7 +315,6 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
               <Text className="sub-heading mt-3">Schedule Stream?</Text>
               <Stack className="my-3">
                 <Checkbox
-                  checked
                   variant="outline"
                   onChange={() => {}}
                   label="Yes Schedule Stream"
@@ -312,18 +327,18 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
               </Stack>
               <Grid className="mb-3">
                 <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
-                  <Text className="sub-heading">Month</Text>
-                  <TextInput
-                    placeholder="Select Month"
+                  <MonthPickerInput
+                    label="Month"
+                    placeholder="Pick month"
                     leftSection={iconCalender}
-                    radius={10}
                     size="md"
+                    radius={10}
                     mt="md"
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
-                  <Text className="sub-heading">Day</Text>
-                  <TextInput
+                  <DatePickerInput
+                    label="Date"
                     placeholder="Select Day"
                     leftSection={daysIcon}
                     radius={10}
@@ -332,10 +347,9 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
-                  <Text className="sub-heading">Time</Text>
-                  <TextInput
+                  <TimeInput
+                    label="Time"
                     placeholder="Select Time"
-                    leftSection={timeIcon}
                     radius={10}
                     size="md"
                     mt="md"
@@ -343,7 +357,6 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
                 </Grid.Col>
               </Grid>
               <Checkbox
-                checked
                 variant="outline"
                 onChange={() => {}}
                 label="I have read the terms and conditions and I hereby accept and agree to the terms and conditions"
