@@ -1,4 +1,4 @@
-export const watchedVideosData = [
+export const RecommendedShortVideos = [
     {
         id:0,
         bgImg: "/images/vid-1.png" ,

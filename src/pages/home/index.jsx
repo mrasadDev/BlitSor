@@ -4,6 +4,8 @@ import { Tabs } from "@mantine/core";
 import AllCategories from "./AllCategories";
 import "./style.css";
 import classes  from "../../styles/Tabs.module.css"
+import CategoryVideos from "./CategoryVideos";
+import RecommendedCategories from "./RecommendedCategories";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState("all categories");
@@ -37,8 +39,8 @@ const Home = () => {
         <Tabs.Panel value="all categories">
           <AllCategories />
         </Tabs.Panel>
-        <Tabs.Panel value="recommended">Recommended</Tabs.Panel>
-        <Tabs.Panel value="360 videos">360 videos</Tabs.Panel>
+        <Tabs.Panel value="recommended"><RecommendedCategories /></Tabs.Panel>
+        <Tabs.Panel value="360 videos"><CategoryVideos /></Tabs.Panel>
         <Tabs.Panel value="pubg">Pub g</Tabs.Panel>
         <Tabs.Panel value="call of duty">Call of Duty</Tabs.Panel>
       </Tabs>
