@@ -8,6 +8,7 @@ import Music from "../pages/music";
 import LiveGaming from "../pages/live-gaming";
 import Support from "../pages/support";
 import OpenVideo from "../components/Open-Video/OpenVideo";
+import ChannelDetail from "../pages/channel-detail";
 
 const routes = [
   {
@@ -49,6 +50,10 @@ const routes = [
   {
     path: "/video-detail",
     element: <OpenVideo />,
+  },
+  {
+    path: "/channel-detail",
+    element: <ChannelDetail />,
   },
 ];
 

@@ -1,0 +1,59 @@
+.heading-3 {
+    color: #101828;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+.channel-banner {
+    background-image: url(images/channel-detail.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 50px 10px;
+}
+
+.person-detail {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    width: 60vw;
+}
+
+.sugggest-streamer img {
+    width: 90px;
+}
+
+.person-detail li {
+    color: #344054;
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.person-detail li svg {
+    font-size: 17px;
+}
+
+.active-status {
+    background-color: #ff0045;
+    padding: 2px 7px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 50px;
+}
+
+@media(min-width: 768px) {
+    .channel-banner {
+        padding: 60px;
+    }
+    .person-detail {
+        width: 50vw;
+    }
+}
+
+@media(min-width: 992px) {
+    .person-detail {
+        width: 30vw;
+    }
+}

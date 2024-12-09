@@ -15,6 +15,7 @@ import RecmendedVideo from "../recomended-card/RecmendedVideo";
 import { recomendedVideoData } from "../../data/RecomendedData";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OpenVideo = () => {
   const [inputValue, setInputValue] = useState("");
@@ -28,6 +29,7 @@ const OpenVideo = () => {
     }
   };
 
+  const navigate = useNavigate();
   return (
     <>
       <SimplePage>
@@ -35,7 +37,8 @@ const OpenVideo = () => {
           <Grid.Col
             span={{
               xs: 12,
-              sm: 6,
+              sm: 12,
+              md: 12,
               lg: 7,
             }}
           >
@@ -50,9 +53,12 @@ const OpenVideo = () => {
               Newly Released Attack on Titan Gameplay Live Full Walkthrough |
               Sarah Johnson
             </Text>
-            <Grid className="video-channel mb-2 ">
-              <Grid.Col span={{ lg: 6 }}>
-                <div className="channel-name d-flex align-items-center">
+            <Grid className="video-channel mb-2">
+              <Grid.Col span={{ lg: 5 }}>
+                <div
+                  className="channel-name d-flex align-items-center"
+                  onClick={() => navigate("/channel-detail")}
+                >
                   <figure className="avatar me-2">
                     <img src="images/channel-1.png" alt="..." />
                   </figure>
@@ -62,7 +68,7 @@ const OpenVideo = () => {
                   </div>
                 </div>
               </Grid.Col>
-              <Grid.Col span={{ lg: 6 }}>
+              <Grid.Col span={{ lg: 7 }}>
                 <div className="text-end">
                   <Button className="redBtn px-3 mt-0">
                     <FaBell />
@@ -173,7 +179,7 @@ const OpenVideo = () => {
               </>
             ))}
           </Grid.Col>
-          <Grid.Col span={{ xs: 12, sm: 6, md: 5, lg: 5 }}>
+          <Grid.Col span={{ xs: 12, sm: 12, md: 12, lg: 5 }}>
             {/* <div className="chat-box">
               <ScrollArea h={450}>
                 <div className="d-flex justify-content-between align-items-center">

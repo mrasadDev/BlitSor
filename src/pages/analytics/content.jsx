@@ -9,7 +9,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoArrowUpOutline } from "react-icons/io5";
 import { AreaChart } from "@mantine/charts";
-
+import StackedBarChart from "../../components/BarChart";
 import "./style.css";
 
 const Content = () => {
@@ -45,6 +45,7 @@ const Content = () => {
       Tomatoes: 2290,
     },
   ];
+
   return (
     <>
       <Grid className="mt-3">
@@ -60,7 +61,7 @@ const Content = () => {
                 <Text className="sub-heading mb-2">SHOW DATA</Text>
                 <Menu.Target>
                   <Button className="whiteBtn hover-white mt-0">
-                    Everything <FaChevronDown />
+                    Everything <FaChevronDown className="ms-2" />
                   </Button>
                 </Menu.Target>
                 <Menu.Dropdown>
@@ -98,7 +99,7 @@ const Content = () => {
                 <Text className="sub-heading mb-2">TIME PERIOD</Text>
                 <Menu.Target>
                   <Button className="whiteBtn hover-white mt-0">
-                    Last Week <FaChevronDown />
+                    Last Week <FaChevronDown className="ms-2" />
                   </Button>
                 </Menu.Target>
                 <Menu.Dropdown>
@@ -215,7 +216,9 @@ const Content = () => {
           </div>
         </Grid.Col>
       </Grid>
+      <Text className="mid-heading">Monthly Blits Views Graph</Text>
       <AreaChart
+        className="my-4"
         h={300}
         data={data}
         dataKey="date"
@@ -229,6 +232,8 @@ const Content = () => {
           { name: "Tomatoes", color: "#E8003F" },
         ]}
       />
+      <Text className="mid-heading  mb-3">Monthly Subscribers Analysis</Text>
+      <StackedBarChart />
     </>
   );
 };

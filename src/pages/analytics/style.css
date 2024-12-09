@@ -2,3 +2,15 @@
     background-color: transparent !important;
     color: #344054;
 }
+
+.mid-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.chart-box {
+    padding: 25px;
+    border: 1px solid #D4D4D4;
+    border-radius: 16px;
+}
