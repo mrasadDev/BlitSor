@@ -57,7 +57,7 @@ const AllCategories = () => {
           }}
         >
           {shortsData.map((data) => (
-            <div key={data.id} style={{ flex: "0 0 270px" }}>
+            <div key={data.id} style={{ flex: "0 0 200px" }}>
               <ShortCard
                 bgImg={data.bgImg}
                 title={data.title}

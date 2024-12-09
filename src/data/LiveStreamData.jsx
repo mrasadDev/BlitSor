@@ -1,11 +1,11 @@
-export const CategoryWatchedVideos = [
+export const LiveStreamData = [
     {
         id:0,
         bgImg: "/images/360-1.png" ,
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:1,
@@ -13,7 +13,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:2,
@@ -21,7 +21,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:3,
@@ -29,7 +29,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:4,
@@ -37,7 +37,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:5,
@@ -45,7 +45,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:6,
@@ -53,7 +53,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:7,
@@ -61,7 +61,7 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
     {
         id:8,
@@ -69,6 +69,6 @@ export const CategoryWatchedVideos = [
         channelTitle:"/images/Group 368.png",
         cardTitle:"PUBG Season 26 | Live | New Skins & Maps Explore | Andy Here!",
         views:"/images/Ngopi Sore.png",
-        videoTime: "7 min",
+        LiveLabel: "Live"
     },
 ]

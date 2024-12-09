@@ -6,7 +6,7 @@ export default function EmailVerification({opened, closed}) {
 
   return (
     <>
-      <Modal opened={opened} onClose={closed} withCloseButton={false} size={480}
+      <Modal opened={opened} centered onClose={closed} withCloseButton={false} size={480}
         radius={20}
         padding={30}>
         <div className="verification">

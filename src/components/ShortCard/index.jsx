@@ -6,9 +6,9 @@ export default function index({bgImg,title,views,watch,category }) {
     <>
       <Image
         width={150}
-        height={450}
+        height={350}
         mx="auto"
-        radius={40}
+        radius={20}
         src={bgImg}
         alt="Random image"
       />
