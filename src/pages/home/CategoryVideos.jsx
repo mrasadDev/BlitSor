@@ -24,6 +24,7 @@ const CategoryVideos = () => {
                 channelTitle={data.channelTitle}
                 cardTitle={data.cardTitle}
                 views={data.views}
+                videoTime={data.videoTime}
               />
             </Grid.Col>
           );

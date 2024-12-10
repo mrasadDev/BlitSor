@@ -1,4 +1,4 @@
-export const CategoryWatchedVideos = [
+export const MusicData = [
     {
         id:0,
         bgImg: "/images/360-1.png" ,

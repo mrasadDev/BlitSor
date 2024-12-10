@@ -6,7 +6,7 @@ export default function Verification({opened, close}) {
 
   return (
     <>
-      <Modal opened={opened} onClose={close} withCloseButton={false} size={480}
+      <Modal opened={opened} centered onClose={close} withCloseButton={false} size={480}
         radius={20}
         padding={30}>
         <div className="verification">

@@ -19,8 +19,8 @@ const RecommendedCategories = () => {
         offsetScrollbars
       >
         <div style={{ display: "flex", marginTop: 30, gap: "10px", cursor:"pointer" }}>
-          {RecommendedShortVideos.map((data) => (
-            <div key={data.id} style={{ flex: "0 0 270px" }}>
+          {shortsData.map((data) => (
+            <div key={data.id} style={{ flex: "0 0 200px" }}>
               <ShortCard
                 bgImg={data.bgImg}
                 title={data.title}
@@ -40,7 +40,7 @@ const RecommendedCategories = () => {
       >
         <div style={{ display: "flex", marginTop: 30, gap: "10px", cursor:"pointer" }}>
           {shortsData.map((data) => (
-            <div key={data.id} style={{ flex: "0 0 270px" }}>
+            <div key={data.id} style={{ flex: "0 0 200px" }}>
               <ShortCard
                 bgImg={data.bgImg}
                 title={data.title}
@@ -52,25 +52,26 @@ const RecommendedCategories = () => {
           ))}
         </div>
       </ScrollArea>
-      <Text className="video-section-title">360 videos we think you’ll like</Text>
+      <Text className="video-section-title">PUBG Live Stream</Text>
       <ScrollArea style={{ width: "100%" }}
         type="hover"
         scrollbarSize={10}
         offsetScrollbars>
-      <Grid mt={30}>
+      <div style={{ display: "flex", marginTop: 30, gap: "10px", cursor:"pointer" }}>
         {CategoryWatchedVideos.map((data) => {
           return (
-            <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={data.id}>
+            <div key={data.id} style={{ flex: "0 0 270px" }}>
               <VideoCard
                 bgImg={data.bgImg}
                 channelTitle={data.channelTitle}
                 cardTitle={data.cardTitle}
                 views={data.views}
+                videoTime={data.videoTime}
               />
-            </Grid.Col>
+            </div>
           );
         })}
-      </Grid>
+        </div>
       </ScrollArea>
     </div>
   );

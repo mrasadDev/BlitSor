@@ -20,3 +20,28 @@
 .videoTime p {
   font-size: 10px;
 }
+
+
+.LiveLabel {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #FF0045;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 4px;
+}
+
+.LiveLabel p {
+  font-size: 12px;
+}
+
+.LabelDollar {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  background-color: #FF0045;
+  color: #fff;
+  padding: 1px 8px;
+  border-radius: 8px;
+}

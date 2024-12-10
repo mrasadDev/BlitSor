@@ -10,6 +10,8 @@ export default function index({
   views,
   videoTime,
   channelName,
+  LiveLabel,
+  LabelDollar,
 }) {
   const navigate = useNavigate();
   return (
@@ -18,7 +20,7 @@ export default function index({
         onClick={() => navigate("/video-detail")}
         withBorder
         padding="lg"
-        radius={25}
+        radius={10}
         className={classes.card}
       >
         <Card.Section
@@ -29,9 +31,21 @@ export default function index({
             backgroundPosition: "center",
           }}
         />
-        <div className={classes.videoTime}>
-          <Text key={index}>{videoTime}</Text>
-        </div>
+        {videoTime &&
+          <div className={classes.videoTime}>
+            <Text key={index}>{videoTime}</Text>
+          </div>
+        }
+        {LiveLabel && 
+          <div className={classes.LiveLabel}>
+            <Text key={index}>{LiveLabel}</Text>
+          </div>
+        }
+        {LabelDollar && 
+          <div className={classes.LabelDollar}>
+            <Text key={index}>{LabelDollar}</Text>
+          </div>
+        }
         <div className="image-title d-flex justify-content-between">
           <div className="d-flex">
             <div>
