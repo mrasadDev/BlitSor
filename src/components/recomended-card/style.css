@@ -1,0 +1,49 @@
+/* .recomended-main .mantine-Grid-inner {
+    align-items: center;
+} */
+
+.recomended-img img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.responsive-text {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide the overflowed text */
+    text-overflow: ellipsis; /* Display dots (ellipsis) at the end */
+    max-width: 100%; /* Set the max width of the container */
+}
+
+.recomended-content h5 {
+    font-size: 16px;
+    color: #1F2937;
+}
+
+.recomended-content  .channel-name {
+    font-size: 14px;
+    color: #667085;
+}
+
+.recomended-content span {
+    color: #282828;
+    font-size: 14px;
+}
+
+
+@media(min-width: 768px) {
+    .recomended-img {
+        width: 20vw;
+    }
+}
+
+@media(min-width: 992px) {
+    .recomended-img {
+        width: 16vw;
+    }
+}
+
+@media(min-width: 1200px) {
+    .recomended-img {
+        width: 13vw;
+    }
+}
