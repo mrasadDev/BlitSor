@@ -53,7 +53,7 @@ const index = () => {
                   <Text className="sub-heading mb-2">SHOW DATA</Text>
                   <Menu.Target>
                     <Button className="whiteBtn hover-white mt-0">
-                      Everything <FaChevronDown />
+                      Everything <FaChevronDown className="ms-2" />
                     </Button>
                   </Menu.Target>
                   <Menu.Dropdown>
@@ -93,7 +93,7 @@ const index = () => {
                   <Text className="sub-heading mb-2">TIME PERIOD</Text>
                   <Menu.Target>
                     <Button className="whiteBtn hover-white mt-0">
-                      Last Week <FaChevronDown />
+                      Last Week <FaChevronDown className="ms-2" />
                     </Button>
                   </Menu.Target>
                   <Menu.Dropdown>
@@ -202,7 +202,7 @@ const index = () => {
                   <Menu shadow="md" width={200}>
                     <Menu.Target>
                       <Button className="rounded-5 p-2 whiteBtn hover-white me-0 mt-0">
-                        Weekly <FaChevronDown />
+                        Weekly <FaChevronDown className="ms-2" />
                       </Button>
                     </Menu.Target>
                     <Menu.Dropdown>

@@ -13,12 +13,6 @@
     width: 100% !important;
 }
 
-.chat-box{
-    background-color: #282828;
-    border-radius: 16px;
-    padding: 16px;
-}
-
 .video-about {
     border: 1px solid #D0D5DD;
     border-radius: 8px;
@@ -29,10 +23,25 @@
     line-height: 24px;
 }
 
+.channel-name {
+    cursor: pointer;
+}
+
 .avatar img {
     border-radius: 50%;
     padding: 4px;
     border: 1px solid #667085;
+}
+
+.channel-name h5 {
+    font-size: 18px;
+    color: #101828;
+}
+
+.channel-name span {
+    color: #34373C;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .channel-tag {
@@ -42,6 +51,12 @@
 .video-channel .mantine-Grid-inner {
     align-items: center;
 }
+
+/* .chat-box {
+    background-color: #282828;
+    border-radius: 16px;
+    padding: 16px;
+} */
 
 /* .chat-avatar img {
     border-radius: 50%;
@@ -92,26 +107,3 @@
     margin-top: 1.5rem;
 }
 
-.recomended-img {
-    width: 10vw;
-    object-fit: cover;
-}
-
-.recomended-content h5 {
-    font-size: 16px;
-    color: #1F2937;
-}
-
-.recomended-content  .channel-name {
-    font-size: 14px;
-    color: #667085;
-}
-
-.recomended-content span {
-    color: #282828;
-    font-size: 14px;
-}
-
-.recomended-img img {
-    border-radius: 8px;
-}

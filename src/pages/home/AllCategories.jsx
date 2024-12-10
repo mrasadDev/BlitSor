@@ -26,7 +26,6 @@ const AllCategories = () => {
         {watchedVideosData.map((data) => {
           return (
             <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={data.id}>
-              <Grid></Grid>
               <VideoCard
                 bgImg={data.bgImg}
                 channelTitle={data.channelTitle}

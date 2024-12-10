@@ -8,9 +8,44 @@ import { FaChevronDown } from "react-icons/fa";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoArrowUpOutline } from "react-icons/io5";
+import StackedBarChart from "../../components/BarChart";
+import { AreaChart } from "@mantine/charts";
 import "./style.css";
 
 const Overview = () => {
+  const data = [
+    {
+      date: "Mar 22",
+      Apples: 2890,
+      Oranges: 2338,
+      Tomatoes: 2452,
+    },
+    {
+      date: "Mar 23",
+      Apples: 2756,
+      Oranges: 2103,
+      Tomatoes: 2402,
+    },
+    {
+      date: "Mar 24",
+      Apples: 3322,
+      Oranges: 986,
+      Tomatoes: 1821,
+    },
+    {
+      date: "Mar 25",
+      Apples: 3470,
+      Oranges: 2108,
+      Tomatoes: 2809,
+    },
+    {
+      date: "Mar 26",
+      Apples: 3129,
+      Oranges: 1726,
+      Tomatoes: 2290,
+    },
+  ];
+
   return (
     <>
       <Grid className="mt-3">
@@ -26,7 +61,7 @@ const Overview = () => {
                 <Text className="sub-heading mb-2">SHOW DATA</Text>
                 <Menu.Target>
                   <Button className="whiteBtn hover-white mt-0">
-                    Everything <FaChevronDown />
+                    Everything <FaChevronDown className="ms-2" />
                   </Button>
                 </Menu.Target>
                 <Menu.Dropdown>
@@ -64,7 +99,7 @@ const Overview = () => {
                 <Text className="sub-heading mb-2">TIME PERIOD</Text>
                 <Menu.Target>
                   <Button className="whiteBtn hover-white mt-0">
-                    Last Week <FaChevronDown />
+                    Last Week <FaChevronDown className="ms-2" />
                   </Button>
                 </Menu.Target>
                 <Menu.Dropdown>
@@ -164,6 +199,28 @@ const Overview = () => {
           </div>
         </Grid.Col>
       </Grid>
+
+      <div className="chart-box mb-4">
+        <Text className="mid-heading">Monthly Blits Views Graph</Text>
+        <AreaChart
+          h={300}
+          data={data}
+          dataKey="date"
+          type="stacked"
+          withGradient={true}
+          withDots={false}
+          withLegend
+          series={[
+            { name: "Apples", color: "#8C0026" },
+            { name: "Oranges", color: "#FF336A" },
+            { name: "Tomatoes", color: "#E8003F" },
+          ]}
+        />
+      </div>
+      <div className="chart-box">
+        <Text className="mid-heading  mb-3">Monthly Subscribers Analysis</Text>
+        <StackedBarChart />
+      </div>
     </>
   );
 };

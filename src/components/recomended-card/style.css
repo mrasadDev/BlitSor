@@ -1,6 +1,9 @@
 /* .recomended-main .mantine-Grid-inner {
     align-items: center;
 } */
+.recomended-main .mantine-Grid-inner {
+    align-items: center;
+}
 
 .recomended-img img {
     width: 100%;
