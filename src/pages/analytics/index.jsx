@@ -6,7 +6,7 @@ import Overview from "./overview";
 import "./style.css";
 import Content from "./content";
 
-const index = () => {
+const Index = () => {
   const [activeTab, setActiveTab] = useState("overview");
   return (
     <>
@@ -42,4 +42,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

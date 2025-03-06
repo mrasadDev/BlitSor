@@ -1,9 +1,11 @@
-import { Grid, ScrollArea, Text } from "@mantine/core";
+import { Grid, Text } from "@mantine/core";
 import VideoCard from "../../components/VideoCard";
 import "./style.css";
 import { CategoryWatchedVideos } from "../../data/CategoryWatchedVideos";
+import { useNavigate } from "react-router-dom";
 
 const CategoryVideos = () => {
+    const navigate = useNavigate()
   return (
     <div className="mt-5">
       <Text className="page-title">360 Videos</Text>
@@ -20,11 +22,8 @@ const CategoryVideos = () => {
           return (
             <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 4 }} key={data.id}>
               <VideoCard
-                bgImg={data.bgImg}
-                channelTitle={data.channelTitle}
-                cardTitle={data.cardTitle}
-                views={data.views}
-                videoTime={data.videoTime}
+                data={data}
+                navigateTo={() => navigate("/video-detail", { state: data })}
               />
             </Grid.Col>
           );

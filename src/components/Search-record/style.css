@@ -1,0 +1,67 @@
+.recomended-main{
+    cursor: pointer;
+}
+
+.image_wrapper{
+    position: relative;
+}
+
+.recomended-img img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.responsive-text {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%; 
+}
+
+.recomended-content h5 {
+    font-size: 16px;
+    color: #1F2937;
+}
+
+.recomended-content  .channel-name {
+    font-size: 14px;
+    color: #667085;
+}
+
+.recomended-content span {
+    color: #282828;
+    font-size: 14px;
+}
+
+.LiveLabel {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background-color: #FF0045;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 4px;
+  }
+  
+  .LiveLabel p {
+    font-size: 12px;
+  }
+
+
+@media(min-width: 768px) {
+    .recomended-img {
+        width: 20vw;
+    }
+}
+
+@media(min-width: 992px) {
+    .recomended-img {
+        width: 16vw;
+    }
+}
+
+@media(min-width: 1200px) {
+    .recomended-img {
+        width: 16vw;
+    }
+}

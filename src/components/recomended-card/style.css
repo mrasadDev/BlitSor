@@ -1,8 +1,5 @@
-/* .recomended-main .mantine-Grid-inner {
-    align-items: center;
-} */
-.recomended-main .mantine-Grid-inner {
-    align-items: center;
+.recomended-main{
+    cursor: pointer;
 }
 
 .recomended-img img {
@@ -11,10 +8,10 @@
 }
 
 .responsive-text {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowed text */
-    text-overflow: ellipsis; /* Display dots (ellipsis) at the end */
-    max-width: 100%; /* Set the max width of the container */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%; 
 }
 
 .recomended-content h5 {

@@ -21,7 +21,7 @@ const index = () => {
             <h5 className="heading-3">Sarah Johnson is Offline.</h5>
             <p>
               🎮 Leveling up one game at a time! 🔥 Join me on epic gaming
-              adventures, boss battles, and epic wins! 🚀 
+              adventures, boss battles, and epic wins! 🚀 
             </p>
             <ul className="list-unstyled">
               <li>
@@ -39,9 +39,9 @@ const index = () => {
 
         <Grid className="video-channel my-4 ">
           <Grid.Col span={{ lg: 5 }}>
-            <div className="channel-name d-flex align-items-center">
-              <figure className="avatar me-2">
-                <img src="images/avatar-sarah.png" alt="..." />
+            <div className="channel-name  d-flex align-items-center">
+              <figure className="avatar channel-owner-img me-2">
+                <img src="images/vid-1.png" alt="..." />
               </figure>
               <div className="">
                 <h5 className="mb-0">Sarah Johnson</h5>

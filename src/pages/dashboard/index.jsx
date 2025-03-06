@@ -25,12 +25,12 @@ const index = () => {
           </Grid.Col>
         </Grid>
         <Grid mt={30}>
-          <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
+          <Grid.Col span={{ base: 12, md: 4, lg: 3 }}>
             <figure className="channel-video">
               <img src="/images\dasboard-vid-1.png" alt="..." />
             </figure>
           </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
+          <Grid.Col span={{ base: 12, md: 8, lg: 9 }}>
             <div>
               <h5 className="text-24">
                 Dota 2 Gameplay Ep 1 with all master techniques
@@ -57,12 +57,12 @@ const index = () => {
           </Grid.Col>
         </Grid>
         <Grid>
-          <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
+          <Grid.Col span={{ base: 12, md: 4, lg: 3 }}>
             <figure className="channel-video">
               <img src="/images\dashboard-vid-2.png" alt="..." />
             </figure>
           </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
+          <Grid.Col span={{ base: 12, md: 8, lg: 9 }}>
             <div>
               <h5 className="text-24">
                 PUBG PC, who are the real pro players in your opinion?
@@ -89,12 +89,12 @@ const index = () => {
           </Grid.Col>
         </Grid>
         <Grid>
-          <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
+          <Grid.Col span={{ base: 12, md: 4, lg: 3 }}>
             <figure className="channel-video">
               <img src="/images\dashboard-vid-3.png" alt="..." />
             </figure>
           </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 8, lg: 8 }}>
+          <Grid.Col span={{ base: 12, md: 8, lg: 9 }}>
             <div>
               <h5 className="text-24">
                 Red Dead Redemption 2 - Open World Free Roam Gameplay

@@ -4,8 +4,10 @@ import ShortCard from "../../components/ShortCard";
 import { watchedVideosData } from "../../data/WatchedVideos";
 import { shortsData } from "../../data/Categories";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const AllCategories = () => {
+  const navigate = useNavigate();
   return (
     <div className="mt-5">
       <Text className="page-title">Discover</Text>
@@ -27,12 +29,8 @@ const AllCategories = () => {
           return (
             <Grid.Col span={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={data.id}>
               <VideoCard
-                bgImg={data.bgImg}
-                channelTitle={data.channelTitle}
-                channelName={data.channelName}
-                cardTitle={data.cardTitle}
-                views={data.views}
-                videoTime={data.videoTime}
+                data={data}
+                navigateTo={() => navigate("/video-detail", { state: data })}
               />
             </Grid.Col>
           );
@@ -56,7 +54,7 @@ const AllCategories = () => {
           }}
         >
           {shortsData.map((data) => (
-            <div key={data.id} style={{ flex: "0 0 200px" }}>
+            <div key={data.id} style={{ flex: "0 0 270px" }}>
               <ShortCard
                 bgImg={data.bgImg}
                 title={data.title}

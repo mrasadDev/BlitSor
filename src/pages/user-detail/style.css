@@ -1,0 +1,36 @@
+.user-img img {
+  width: 327px;
+  height: 381px;
+  border-radius: 7px;
+}
+
+.gifts-img {
+    background-color: #d4cece;
+    border-radius: 49px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gifts-img img{
+    width: 50%;
+}
+
+.action-btn {
+    margin-top: 2rem;
+}
+
+.action-btn a {
+ text-decoration: none;
+ color: #00000099;
+}
+.action-btn .view-all{
+    color: black;
+    margin-right: 1rem;
+    border: 1px solid red;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 14px;
+}

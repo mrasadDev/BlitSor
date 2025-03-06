@@ -3,7 +3,6 @@ import { LuUser } from 'react-icons/lu';
 import { CiCalendar } from 'react-icons/ci';
 import { GiCheckMark } from "react-icons/gi";
 import { Text } from '@mantine/core';
-import { DatePickerInput } from '@mantine/dates';
 
 const AboutChannel = () => {
 
@@ -27,7 +26,7 @@ const AboutChannel = () => {
 
   return (
     <div className='about-channel-box p-4 mt-3'>
-        <figure>
+        <figure className='channel-owner-img'>
             <img src="images/About-Channel-Porfile.png" alt="img" />
         </figure>
         <div className="profile-name d-flex mt-3">
@@ -72,7 +71,7 @@ const AboutChannel = () => {
                 radius={10}
                 classNames={{ input: 'custom-input-text-area' }}
             />
-            <DatePickerInput
+            <TextInput
                     label="Language (Required)"
                     placeholder="Day"
                     leftSection={iconCalender}
@@ -80,7 +79,7 @@ const AboutChannel = () => {
                     size="md"
                     mt="md"
                   />
-            <DatePickerInput
+            <TextInput
                 label="Country (required)"
                 placeholder="Day"
                 className='mt-2'

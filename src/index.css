@@ -76,9 +76,9 @@ img {
   margin-top: 5px;
 }
 
-.m_86a44da5{
+/* .m_86a44da5{
   color: #fff;
-}
+} */
 
 .redBtn {
   margin-top: 24px;
@@ -88,6 +88,22 @@ img {
   border-radius: 8px;
   margin-right: 1vw;
   font-weight: 400;
+}
+.redBtn1 {
+  margin-top: 10px;
+  background: #ff0045;
+  color: #fff;
+  padding: 5px 30px;
+  border-radius: 8px;
+  margin-right: 1vw;
+  font-weight: 400;
+}
+
+.channel-owner-img img {
+  width: 45px; 
+  height: 45px; 
+  border-radius: 50%; 
+  object-fit: cover; 
 }
 
 .mb- {
@@ -105,6 +121,11 @@ img {
 
 .padding {
   padding: 3px 70px;
+  margin-right: 1rem;
+}
+
+.padding1 {
+  padding: 3px 7vw;
   margin-right: 1rem;
 }
 
@@ -158,6 +179,13 @@ img {
   line-height: 26px;
   letter-spacing: 0.5px;
   text-align: left;
+}
+
+.text-end{
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .channelTitle {

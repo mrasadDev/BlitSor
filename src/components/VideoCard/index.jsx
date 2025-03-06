@@ -1,68 +1,57 @@
 import { Card, Text } from "@mantine/core";
 import classes from "./UserCardImage.module.css";
-import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
-export default function index({
-  bgImg,
-  channelTitle,
-  cardTitle,
-  views,
-  videoTime,
-  channelName,
-  LiveLabel,
-  LabelDollar,
-}) {
-  const navigate = useNavigate();
+export default function index({ data, navigateTo }) {
   return (
     <>
       <Card
-        onClick={() => navigate("/video-detail")}
         withBorder
         padding="lg"
-        radius={10}
+        radius={15}
         className={classes.card}
+        onClick={navigateTo}
       >
         <Card.Section
           h={180}
           style={{
-            backgroundImage: `url(${bgImg})`,
+            backgroundImage: `url(${data?.bgImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
-        {videoTime &&
-          <div className={classes.videoTime}>
-            <Text key={index}>{videoTime}</Text>
-          </div>
-        }
-        {LiveLabel && 
+        <div className={classes.videoTime}>
+          <Text>{data?.videoTime}</Text>
+        </div>
+
+        {data.LiveLabel && 
           <div className={classes.LiveLabel}>
-            <Text key={index}>{LiveLabel}</Text>
+            <Text>{data?.LiveLabel}</Text>
           </div>
         }
-        {LabelDollar && 
+         
+        {data.LabelDollar && 
           <div className={classes.LabelDollar}>
-            <Text key={index}>{LabelDollar}</Text>
+            <Text>{data?.LabelDollar}</Text>
           </div>
         }
         <div className="image-title d-flex justify-content-between">
           <div className="d-flex">
-            <div>
-              <img src={channelTitle} alt="" />
-            </div>
-            <div>
-              <Text className="channelTitle">{channelName}</Text>
+            <figure className="channel-owner-img">
+              <img src={data?.channelTitle} alt="" />
+            </figure>
+            <div className="text-end">
+              <Text className="channelTitle">{data?.channelName}</Text>
             </div>
           </div>
           <div>
-            <img src="/images/Group 1597061.png" alt="" />
+            <BsThreeDotsVertical />
           </div>
         </div>
-        <Text className="card-title">{cardTitle}</Text>
-        <div className="image-title">
-          <img src={views} alt="" />
-        </div>
+        <Text className="card-title">{data?.cardTitle}</Text>
+        <Text size="sm" style={{ color: "#808191" }} mt={10}>
+          {data?.views}K views . {data?.uploadTime} weeks ago
+        </Text>
       </Card>
     </>
   );

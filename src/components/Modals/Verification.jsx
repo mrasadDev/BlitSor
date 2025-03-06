@@ -6,25 +6,25 @@ export default function Verification({opened, close}) {
 
   return (
     <>
-      <Modal opened={opened} centered onClose={close} withCloseButton={false} size={480}
+      <Modal opened={opened} onClose={close}  size={480}
         radius={20}
-        padding={30}>
+        padding={20}>
         <div className="verification">
           <div className="telephone-icon">
-            <BsTelephoneInbound />
+            <BsTelephoneInbound className='font-bold' size="lg" fontWeight={800}/>
           </div>
           <h6 className='mt-3'>Please check your SMS.</h6>
           <p>We've sent a code to number by SMS</p>
           <OTP />
-          <p className='mt-2 text-14'>Didn’t get a code? <a href="#">Click to resend.</a></p>
+          <p className='mt-2'>Didn’t get a code? <a href="#">Click to resend.</a></p>
         </div>
-        <Grid>
-          <Grid.Col span={{ base: 6, md: 6, lg: 6 }}>
+        <Grid ml={30}>
+          <Grid.Col span={{ base: 6, md: 6, lg: 5.5 }}>
             <Button className="whiteBtn" fullWidth onClick={close}>
               Cancel
             </Button>
           </Grid.Col>
-          <Grid.Col span={{ base: 6, md: 6, lg: 6 }}>
+          <Grid.Col span={{ base: 6, md: 6, lg: 5.5 }}>
             <Button className="redBtn" fullWidth>
               Verify
             </Button>

@@ -1,5 +1,5 @@
 import { Button, Divider, Text } from "@mantine/core";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { AiFillTikTok } from "react-icons/ai";
@@ -15,9 +15,11 @@ import { SiGoogleanalytics } from "react-icons/si";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
 import { RiListSettingsFill } from "react-icons/ri";
 import { BsWebcam } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { LuPackagePlus } from "react-icons/lu";
 import classes from "./NavbarSimple.module.css";
 import LogOutUser from "../LogoutUser";
+import { FaRegUser } from "react-icons/fa6";
 
 const data = [
   {
@@ -89,6 +91,16 @@ const data = [
         link: "/live-gaming",
         icon: <IoGameControllerOutline />,
       },
+      {
+        label: "Settings",
+        link: "/settings",
+        icon: <IoSettingsOutline />,
+      },
+      {
+        label: "Packages",
+        link: "/packages",
+        icon: <LuPackagePlus />,
+      },
     ],
     count: 2,
   },
@@ -98,7 +110,7 @@ const data = [
     label: "",
     links: [
       {
-        label: "Settings",
+        label: "CreateStudio",
         link: "/dashboard1",
         icon: <IoSettingsOutline />,
       },
@@ -106,6 +118,11 @@ const data = [
         label: "Support",
         link: "/support",
         icon: <BiSupport />,
+      },
+      {
+        label: "About",
+        link: "/about",
+        icon: <FaRegUser />,
       },
     ],
     count: 3,
@@ -187,10 +204,34 @@ const settingsData = [
 
 // eslint-disable-next-line react/prop-types
 export function NavbarSimple({ signinOpen, signupOpen }) {
+  const location = useLocation()
   const [active, setActive] = useState("Discover");
   const [navSection, setNavSection] = useState("main"); 
 
-  const currentData = navSection === "settings" ? settingsData : data; 
+  const currentData = navSection === "CreateStudio" ? settingsData : data; 
+
+  useEffect(() => {
+		const findMatchingPath = () => {
+			const pathsToCheck = []
+			let currentPath = location.pathname
+
+			while (currentPath) {
+				pathsToCheck.push(currentPath)
+				const lastIndex = currentPath.lastIndexOf('/')
+				currentPath = lastIndex > 0 ? currentPath.slice(0, lastIndex) : ''
+			}
+
+			for (const path of pathsToCheck) {
+				const activeLink = data.flatMap((item) => item.links).find((link) => link.link === path)
+				if (activeLink) return activeLink.label
+			}
+
+			return 'Discover'
+		}
+
+		const activeLabel = findMatchingPath()
+		setActive(activeLabel)
+	}, [location.pathname])
 
   const links = currentData.map((item, index) => (
     <div key={`section-${index}`} className="ml-3">
@@ -199,11 +240,11 @@ export function NavbarSimple({ signinOpen, signupOpen }) {
       </Text>
       {item.links?.map((link, linkIndex) => {
         const linkClass =
-          navSection === "settings"
+          navSection === "CreateStudio"
             ? link.label === "Support"
               ? `${classes.link} ${classes.settingsLink}`
               : classes.link
-            : link.label === "Settings"
+            : link.label === "CreateStudio"
             ? `${classes.link} ${classes.settingsLink}`
             : classes.link;
 
@@ -215,8 +256,8 @@ export function NavbarSimple({ signinOpen, signupOpen }) {
             key={`link-${index}-${linkIndex}`}
             onClick={() => {
               setActive(link.label);
-              if (link.label === "Settings") {
-                setNavSection("settings"); // Switch to settings section
+              if (link.label === "CreateStudio") {
+                setNavSection("CreateStudio"); // Switch to settings section
               }
             }}
           >

@@ -3,8 +3,10 @@ import { Grid, Text } from "@mantine/core";
 import VideoCard from "../../components/VideoCard";
 import { watchedVideosData } from "../../data/WatchedVideos";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate()
   return (
     <>
       <Text className="page-title">Sarah featured clips</Text>
@@ -18,12 +20,8 @@ const Home = () => {
             >
               <Grid></Grid>
               <VideoCard
-                bgImg={data.bgImg}
-                channelTitle={data.channelTitle}
-                channelName={data.channelName}
-                cardTitle={data.cardTitle}
-                views={data.views}
-                videoTime={data.videoTime}
+                data={data}
+                navigateTo={() => navigate("/video-detail", { state: data })}
               />
             </Grid.Col>
           );
@@ -32,8 +30,8 @@ const Home = () => {
       <Text className="page-title mb-3">Sarah suggests these streamers</Text>
       <Grid>
         <Grid.Col span={{ base: 3, sm: 2, md: 2, lg: 2 }}>
-          <div className="sugggest-streamer channel-name text-center">
-            <figure className="avatar me-2 mb-2">
+          <div className=" channel-name text-center">
+            <figure className=" channel-owner-img me-2 mb-2">
               <img src="images/channel-1.png" alt="..." />
             </figure>
             <div className="">
@@ -43,9 +41,9 @@ const Home = () => {
           </div>
         </Grid.Col>
         <Grid.Col span={{ base: 3, sm: 2, md: 2, lg: 2 }}>
-          <div className="sugggest-streamer channel-name text-center">
-            <figure className="avatar me-2 mb-2">
-              <img src="images/avatar-3.png" alt="..." />
+          <div className=" channel-name text-center">
+            <figure className=" channel-owner-img me-2 mb-2">
+              <img src="images/vid-1.png" alt="..." />
             </figure>
             <div className="">
               <h5 className="mb-0">William Castle</h5>
@@ -54,12 +52,12 @@ const Home = () => {
           </div>
         </Grid.Col>
         <Grid.Col span={{ base: 3, sm: 2, md: 2, lg: 2 }}>
-          <div className="sugggest-streamer channel-name text-center">
-            <figure className="avatar me-2 mb-2">
-              <img src="images/avatar-you.jpg" alt="..." />
+          <div className=" channel-name text-center">
+            <figure className=" channel-owner-img me-2 mb-2">
+              <img src="images/vid-1.png" alt="..." />
             </figure>
             <div className="">
-              <h5 className="mb-0">Amaan Bhatti</h5>
+              <h5 className="mb-0">William</h5>
               <span>150k followers</span>
             </div>
           </div>

@@ -1,35 +1,34 @@
-import SimplePage from "../../components/SimplePage";
-import {
-  Grid,
-  Text,
-  Button,
-  useMantineTheme,
-  Badge,
-  CloseButton,
-} from "@mantine/core";
+import SimplePage from "../SimplePage";
+import { Grid, Text, Button} from "@mantine/core";
 import ReactPlayer from "react-player";
-import { FaBell } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import "./style.css";
 import RecmendedVideo from "../recomended-card/RecmendedVideo";
 import { recomendedVideoData } from "../../data/RecomendedData";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import {
+  AiOutlineLike,
+  AiOutlineDislike,
+  AiFillLike,
+  AiFillDislike,
+} from "react-icons/ai";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import CommentsList from "../Comments/CommentList";
 
 const OpenVideo = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [tags, setTags] = useState([]);
-  const theme = useMantineTheme();
+  const [likeCount, setLikeCount] = useState(0);
+  const disLikeCount = useState(0);
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter" && inputValue.trim() !== "") {
-      setTags([...tags, inputValue.trim()]);
-      setInputValue("");
-    }
-  };
-
+  const location = useLocation();
   const navigate = useNavigate();
+  const data = location.state;
+
+  const handleLike = () => setLikeCount((prev) => prev + 1);
+  const handleUnlike = () => setLikeCount((prev) => (prev > 0 ? prev - 1 : 0));
+
+
+
+
   return (
     <>
       <SimplePage>
@@ -49,34 +48,60 @@ const OpenVideo = () => {
                 url="https://youtu.be/9O-Ds20IkH8?si=-3TQC2y2XNCY6B2C"
               />
             </div>
-            <Text className="video-title my-3">
-              Newly Released Attack on Titan Gameplay Live Full Walkthrough |
-              Sarah Johnson
-            </Text>
-            <Grid className="video-channel mb-2">
-              <Grid.Col span={{ lg: 5 }}>
+            <Text className="video-title my-3">{data?.cardTitle}</Text>
+            <Grid className="video-channel mb-2 ">
+              <Grid.Col span={5}>
                 <div
                   className="channel-name d-flex align-items-center"
                   onClick={() => navigate("/channel-detail")}
                 >
-                  <figure className="avatar me-2">
+                  <figure className="channel-owner-img me-2">
                     <img src="images/channel-1.png" alt="..." />
                   </figure>
-                  <div className="">
-                    <h5 className="mb-0">Sarah Johnson</h5>
+                  <div>
+                    <h5 className="mb-0">{data?.channelName}</h5>
                     <span>18.7k followers</span>
                   </div>
                 </div>
               </Grid.Col>
               <Grid.Col span={{ lg: 7 }}>
-                <div className="text-end">
-                  <Button className="redBtn px-3 mt-0">
-                    <FaBell />
-                  </Button>
-                  <Button className="redBtn px-3 mt-0">Follow</Button>
-                  <Button className="redBtn px-3 mt-0">Subscribe</Button>
-                  <BsThreeDotsVertical />
-                </div>
+                <Grid>
+                  <Grid.Col span={11}>
+                    <div className="text-end">
+                      <Button
+                        className="redBtn px-3 mt-0"
+                        onClick={handleLike}
+                      >
+                        <Text mr={10} mt={1}>
+                          {likeCount}
+                        </Text>
+                        {likeCount > 0 ? (
+                          <AiFillLike size={20} cursor="pointer" />
+                        ) : (
+                          <AiOutlineLike size={20} cursor="pointer" />
+                        )}
+                      </Button>
+                      <Button
+                        className="redBtn px-3 mt-0"
+                        onClick={handleUnlike}
+                      >
+                        {disLikeCount > 0 ? (
+                          <AiFillDislike size={20} cursor="pointer" />
+                        ) : (
+                          <AiOutlineDislike size={20} cursor="pointer" />
+                        )}
+                      </Button>
+                      <Button className="redBtn px-3 mt-0"> Save</Button>
+                      <Button className="redBtn px-3 mt-0 subscribe-btn">
+                        Subscribe
+                      </Button>
+                      <BsThreeDotsVertical />
+                    </div>
+                  </Grid.Col>
+                  <Grid.Col span={1}>
+                    <BsThreeDotsVertical className="responsive-btn" />
+                  </Grid.Col>
+                </Grid>
               </Grid.Col>
             </Grid>
             <div className="video-tags channel-tag">
@@ -107,177 +132,19 @@ const OpenVideo = () => {
                 Link 2
               </p>
             </div>
-            <Text
-              className="fw-bold"
-              style={{ marginTop: "3rem", fontSize: "1.7rem" }}
-            >
-              Comments
-            </Text>
-            <div
-              style={{
-                marginTop: "1rem",
-                borderRadius: "10px",
-                padding: "15px 0px",
-                display: "flex",
-                alignItems: "center",
-                flexWrap: "wrap",
-                minHeight: "40px",
-                cursor: "text",
-              }}
-              onClick={() => document.getElementById("tag-input").focus()}
-            >
-              <input
-                id="tag-input"
-                type="text"
-                value={inputValue}
-                onChange={(event) => setInputValue(event.target.value)}
-                onKeyDown={handleKeyDown}
-                style={{
-                  border: "none",
-                  outline: "none",
-                  flex: 1,
-                  minWidth: "120px",
-                }}
-                label="Video Tags"
-                placeholder="Write comments"
-              />
+            <div className="mb-5">
+               <CommentsList />
             </div>
-            {tags.map((tag, index) => (
-              <>
-                <Grid>
-                  <Grid.Col span={1}>
-                    {" "}
-                    <div>
-                      <figure className="mt-4">
-                        <img src="images/About-Channel-Porfile.png" alt="img" />
-                      </figure>
-                    </div>{" "}
-                  </Grid.Col>
-                  <Grid.Col span={8}>
-                    {" "}
-                    <div>
-                      <Text className="fw-bold comments">
-                        abcd@gmail.com 1 month ago
-                      </Text>
-                      <Text key={index} size="lg" className="">
-                        {tag}
-                      </Text>
-                      <Grid>
-                        <Grid.Col span={0.7}>
-                          <AiOutlineLike size={20} cursor="pointer" />
-                        </Grid.Col>
-                        <Grid.Col span={0.7}>
-                          <AiOutlineDislike size={20} cursor="pointer" />
-                        </Grid.Col>
-                        <Grid.Col span={1}>
-                          <Text className="cursor-pointer">Reply</Text>
-                        </Grid.Col>
-                      </Grid>
-                    </div>
-                  </Grid.Col>
-                </Grid>
-              </>
-            ))}
           </Grid.Col>
           <Grid.Col span={{ xs: 12, sm: 12, md: 12, lg: 5 }}>
-            {/* <div className="chat-box">
-              <ScrollArea h={450}>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="d-flex align-items-center">
-                    <Button className="redBtn px-3 mt-0">
-                      <FaArrowRight />
-                    </Button>
-                    <Text className="chat-box-heading ">Stream Chat</Text>
-                  </div>
-                  <div>
-                    <RiGift2Fill className="chat-box-icon me-2" />
-                    <PiCrownSimpleFill className="chat-box-icon" />
-                  </div>
-                </div>
-                <Divider className="my-3" />
-                <div className="mb-2 sigle-person-chat d-flex align-items-center">
-                  <figure className="chat-avatar me-2">
-                    <img src="images/channel-1.png" alt="..." />
-                  </figure>
-                  <div className="">
-                    <Text className="mb-0">
-                      John Jr <span className="chat-time">2:31</span>
-                    </Text>
-                    <p className="mb-0 chat-para">This is Dope 👌</p>
-                  </div>
-                </div>
-                <div className="mb-2 sigle-person-chat d-flex align-items-center">
-                  <figure className="chat-avatar me-2">
-                    <img src="images/About-Channel-Porfile.png" alt="..." />
-                  </figure>
-                  <div className="">
-                    <Text className="mb-0">
-                      Amanda Smith <span className="chat-time">2:32</span>
-                    </Text>
-                    <p className="mb-0 chat-para">
-                      I wanted to their reaction though 😭
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-2 sigle-person-chat d-flex align-items-center">
-                  <figure className="chat-avatar me-2">
-                    <img src="images/channel-1.png" alt="..." />
-                  </figure>
-                  <div className="">
-                    <Text className="mb-0">
-                      Garry Mitchells <span className="chat-time">2:34</span>
-                    </Text>
-                    <p className="mb-0 chat-para">Hey i didn’t knew that 😂</p>
-                  </div>
-                </div>
-                <div className="mb-2 sigle-person-chat d-flex align-items-center">
-                  <figure className="chat-avatar me-2">
-                    <img src="images/avatar-you.jpg" alt="..." />
-                  </figure>
-                  <div className="">
-                    <Text className="mb-0 text-pink">
-                      Amaan BhatTi (You) <span className="chat-time">5:41</span>
-                    </Text>
-                    <p className="mb-0 chat-para">The Developers ❣</p>
-                  </div>
-                </div>
-              </ScrollArea>
-              <TextInput
-                className="chat-input"
-                placeholder="Send a Message"
-                variant="filled"
-                rightSection={emojiWink}
-                radius={10}
-              />
-              <div className="mt-2 d-flex align-items-center justify-content-between text-white">
-                <Text className="chat-count">0/512</Text>
-                <div className="text-end">
-                  <TbSettings className="me-2 chat-box-icon" />
-                  <Button className="redBtn px-3 mt-0 me-0">Send</Button>
-                </div>
-              </div>
-            </div> */}
-            {/* <div className="recomended-video d-flex align-items-center">
-              <figure className="recomended-img pe-2">
-                <img src="images/thumbnail-1.png" alt=".." />
-              </figure>
-              <div className="recomended-content">
-                <h5 className="mb-1">Pubg GamePlay</h5>
-                <Text className="channel-name">Cahnnel Name</Text>
-                <span>
-                  1M Views <BsDot /> 1 Year ago
-                </span>
-              </div>
-            </div> */}
             {recomendedVideoData.map((data) => {
               return (
                 <div key={data.id}>
                   <RecmendedVideo
-                    vidImg={data.vidImg}
-                    videoTitle={data.videoTitle}
-                    channelName={data.channelName}
-                    views={data.views}
-                    uploadTime={data.uploadTime}
+                    data={data}
+                    navigateTo={() =>
+                      navigate("/recommended-video-detail", { state: data })
+                    }
                   />
                 </div>
               );

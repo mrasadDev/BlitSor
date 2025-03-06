@@ -16,7 +16,7 @@
 }
 
 .video-area {
-    width: 320px;
+    width: 395px;
 }
 
 .video-area h6 ,  .video-area span{
@@ -37,6 +37,14 @@
     font-weight: 500;
     padding: 4px 10px;
     border-radius: 16px;
+}
+
+.video-thumbnail{
+    width: 250px;
+    margin-bottom: 1rem;
+}
+.video-thumbnail img{
+    width: 100%;
 }
 
 .red-badge {

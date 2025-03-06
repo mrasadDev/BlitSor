@@ -11,6 +11,7 @@ import {
   FileButton,
   MultiSelect,
   Select,
+  InputLabel,
 } from "@mantine/core";
 import ReactPlayer from "react-player";
 import { IconCircleCheck } from "@tabler/icons-react";
@@ -20,6 +21,7 @@ import { CiCalendar } from "react-icons/ci";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 import { PiBroadcastFill } from "react-icons/pi";
+import { TimePicker } from 'react-ios-time-picker';
 import { MdOutlineCategory } from "react-icons/md";
 import { IoLanguage } from "react-icons/io5";
 import { Radio, Stack, Checkbox, ScrollArea } from "@mantine/core";
@@ -34,6 +36,11 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
 
+  const [value, setValue] = useState('00:00');
+
+  const onChange = (timeValue) => {
+     setValue(timeValue);
+  }
   const iconCalender = (
     <>
       <CiCalendar style={{ width: rem(18), height: rem(18), color: "black" }} />
@@ -347,14 +354,11 @@ const StreamInfo = ({ LiveOpened, livePopClose }) => {
                   />
                 </Grid.Col>
                 <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
-                  <TimeInput
-                    label="Time"
-                    placeholder="Select Time"
-                    radius={10}
-                    size="md"
-                    mt="md"
-                  />
+                  <InputLabel size="md" mt={18}>Time</InputLabel>
+         <TimePicker onChange={onChange} value={value}  radius={10} leftSection={daysIcon} style={{borderRadius:"20px"}}/>
                 </Grid.Col>
+                <div>
+      </div>
               </Grid>
               <Checkbox
                 variant="outline"

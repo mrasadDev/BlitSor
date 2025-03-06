@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SimplePage from "../../components/SimplePage";
 import { Tabs } from "@mantine/core";
-import classes  from "../../styles/Tabs.module.css";
+import classes from "../../styles/Tabs.module.css";
 import LiveGaming from "./LiveGaming";
 
 const index = () => {

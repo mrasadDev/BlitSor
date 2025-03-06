@@ -6,19 +6,21 @@ import {
   Button,
   ScrollArea,
   Text,
+  Tooltip,
   rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconMicrophone, IconSearch } from "@tabler/icons-react";
+import { IconFilter, IconMicrophone, IconSearch } from "@tabler/icons-react";
 import { NavbarSimple } from "../NavBar";
 import { Outlet, useNavigate } from "react-router-dom";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import SignInModal from "../Modals/SignInModal";
 import SignUpModal from "../Modals/SignUpModal";
 import ToggleMenu from "../ToggleMenu";
+import { RiWallet3Fill } from "react-icons/ri";
 import "./style.css";
 import { useState } from "react";
-import EmailVerification from "../Modals/EmailVerification";
+import SearchModal from "./SearchModal";
 
 export function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
@@ -27,12 +29,28 @@ export function MainLayout() {
   const [signinOpened, { open: signinOpen, close: signinClose }] =
     useDisclosure(false);
   const [navBar, setNavBar] = useState(false);
-  const navigate = useNavigate();
-  const [emailOpened, {open: emailOpen, close: emailClose}] = useDisclosure(false);
+  const [searchOpened, { open: searchOpen, close: searchClose }] =
+    useDisclosure(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const navigate = useNavigate(event);
+  const handleSearch = () => {
+    if (event.key === "Enter" && searchQuery.trim() !== "") {
+      navigate("/search", { state: { query: searchQuery } });
+    }
+  };
 
   const iconSearch = (
     <>
-      <IconSearch style={{ width: rem(18), height: rem(18), color: "black" }} />
+      <IconSearch
+        style={{
+          width: rem(18),
+          height: rem(18),
+          color: "black",
+          cursor: "pointer",
+        }}
+        onClick={() => navigate("/search")}
+      />
     </>
   );
   const iconMicrophone = (
@@ -69,7 +87,6 @@ export function MainLayout() {
         collapsed: { mobile: !opened },
       }}
     >
-      <EmailVerification opened={emailOpened} closed={emailClose} />
       <AppShell.Header zIndex={200}>
         <div className="d-flex justify-content-between pr-5">
           <Burger
@@ -88,23 +105,34 @@ export function MainLayout() {
             </Anchor>
             <ToggleMenu onSignInOPen={signinOpen} onSignUpOpen={signupOpen} />
           </div>
-          <Autocomplete
-            className="search-bar"
-            leftSection={iconSearch}
-            placeholder="Search"
-            variant="filled"
-            data={[
-              "How to Swim Tutorials",
-              "Pubg PC Gameplay Videos",
-              "Lana Steiner",
-              "Demi Vilkinson",
-              "Candice Wu",
-              "Natali Crage",
-              "Drew Cano",
-            ]}
-            rightSection={iconMicrophone}
-            radius={10}
-          />
+          <div className="d-flex">
+            <Autocomplete
+              className="search-bar"
+              leftSection={iconSearch}
+              placeholder="Search"
+              variant="filled"
+              data={[
+                "How to Swim Tutorials",
+                "Pubg PC Gameplay Videos",
+                "Lana Steiner",
+                "Demi Vilkinson",
+                "Candice Wu",
+                "Natali Crage",
+                "Drew Cano",
+              ]}
+              value={searchQuery}
+              onChange={setSearchQuery}
+              onKeyDown={handleSearch}
+              rightSection={iconMicrophone}
+              radius={10}
+            />
+            <IconFilter
+              size={30}
+              className="fw-bold filter-icon"
+              onClick={searchOpen}
+            />
+          </div>
+
           <div className="login-btns mr-5">
             <Button className="whiteBtn" onClick={signinOpen}>
               Sign in
@@ -112,14 +140,16 @@ export function MainLayout() {
             <Button className="redBtn" onClick={signupOpen}>
               Sign Up
             </Button>
-            <BsThreeDotsVertical
-              size={22}
-              className="toggle-button"
-              cursor="pointer"
-              onClick={emailOpen}
-            />
+            <Tooltip label="Wallet">
+              <RiWallet3Fill
+                size={22}
+                className="toggle-button"
+                cursor="pointer"
+                onClick={()=> navigate("/wallet-detail")}
+              />
+            </Tooltip>
           </div>
-          <div className="toggle-btn mr-5"></div>
+          <div className="toggle-btn mr-2"></div>
         </div>
       </AppShell.Header>
       <AppShell.Navbar height={100}>
@@ -142,6 +172,7 @@ export function MainLayout() {
       <AppShell.Main>
         <SignInModal opened={signinOpened} closed={signinClose} />
         <SignUpModal opened={signupOpened} closed={signupClose} />
+        <SearchModal opened={searchOpened} closed={searchClose} />
         <Outlet />
       </AppShell.Main>
     </AppShell>

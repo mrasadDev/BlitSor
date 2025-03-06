@@ -1,4 +1,4 @@
-import { Grid, Menu, Text, Divider, Button, rem, Tabs } from "@mantine/core";
+import { Grid, Menu, Text, Button, rem } from "@mantine/core";
 import {
   IconMessageCircle,
   IconPhoto,

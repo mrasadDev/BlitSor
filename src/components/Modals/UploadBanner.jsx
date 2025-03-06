@@ -1,9 +1,9 @@
-import {  Modal, Text, Button, Grid } from "@mantine/core";
+import {  Modal, Text, Button } from "@mantine/core";
 import "./style.css";
 import FileBtn from "../file-button/FileBtn"
 
 
-const UploadBanner = ({ BannerPopOpened, BannerPopClose ,preview}) => {
+const UploadBanner = ({ BannerPopOpened, BannerPopClose }) => {
   return (
     <>
       <Modal
@@ -28,16 +28,9 @@ const UploadBanner = ({ BannerPopOpened, BannerPopClose ,preview}) => {
         <Text className="mt-2">
         An image that's 150x150 pixels is recommended. Use a PNG, GIF (without animations), BMP or JPEG file that's 1MB or less.
         </Text>
-        <Grid>
-        <Grid.Col span={6}> <Button className="whiteBtn" fullWidth onClick={BannerPopClose}>
+        <Button className="whiteBtn" fullWidth onClick={BannerPopClose}>
           Cancel
-        </Button></Grid.Col>
-        <Grid.Col span={6} mt={25}> <Button className="redBtm" fullWidth onClick={BannerPopClose}>
-          Next
-        </Button></Grid.Col>
-        </Grid>
-       
-       
+        </Button>
       </Modal>
     </>
   );

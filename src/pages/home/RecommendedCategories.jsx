@@ -1,12 +1,13 @@
-import { Grid, ScrollArea, Text } from "@mantine/core";
+import { ScrollArea, Text } from "@mantine/core";
 import ShortCard from "../../components/ShortCard";
 import VideoCard from "../../components/VideoCard";
 import "./style.css";
 import { shortsData } from "../../data/Categories";
 import { CategoryWatchedVideos } from "../../data/CategoryWatchedVideos";
-import { RecommendedShortVideos } from '../../data/RecommendedShortVideos'
+import { useNavigate } from "react-router-dom";
 
 const RecommendedCategories = () => {
+    const navigate = useNavigate()
   return (
     <div className="mt-5">
       <Text className="video-section-title">
@@ -62,11 +63,8 @@ const RecommendedCategories = () => {
           return (
             <div key={data.id} style={{ flex: "0 0 270px" }}>
               <VideoCard
-                bgImg={data.bgImg}
-                channelTitle={data.channelTitle}
-                cardTitle={data.cardTitle}
-                views={data.views}
-                videoTime={data.videoTime}
+                 data={data}
+                 navigateTo={() => navigate("/video-detail", { state: data })}
               />
             </div>
           );

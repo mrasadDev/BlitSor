@@ -1,33 +1,28 @@
 import { Grid, Text } from "@mantine/core";
-import React from "react";
 import { BsDot } from "react-icons/bs";
-import "./style.css";
+import "./style.css"
 
 const RecmendedVideo = ({
-  vidImg,
-  videoTitle,
-  channelName,
-  views,
-  uploadTime,
+ data,  navigateTo
 }) => {
   return (
     <>
-      <Grid className="recomended-main">
+     <Grid className="recomended-main" onClick={navigateTo}>
         <Grid.Col span={{ base: 12, sm: 3, md: 3, lg: 5 }}>
-          <figure className="recomended-img pe-2">
-            <img src={vidImg} alt=".." />
+          <figure className="channel-video">
+            <img src={data?.vidImg} alt=".." />
           </figure>
         </Grid.Col>
-        <Grid.Col span={{ base: 12, sm: 3, md: 9, lg: 7 }}>
+        <Grid.Col span={{ base: 12, sm: 3, md: 9, lg: 6 }}>
           <div className="recomended-content ">
-            <h5 className="mb-1 responsive-text">{videoTitle}</h5>
-            <Text className="channel-name">{channelName}</Text>
+            <h5 className="mb-1 responsive-text">{data?.cardTitle}</h5>
+            <Text className="channel-name">{data?.channelName}</Text>
             <span>
-              {views} <BsDot /> {uploadTime}
+              {data?.views} <BsDot /> {data?.uploadTime}
             </span>
           </div>
         </Grid.Col>
-      </Grid>
+      </Grid>
     </>
   );
 };

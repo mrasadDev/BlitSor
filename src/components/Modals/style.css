@@ -92,11 +92,26 @@
 
 .video-tags {
   border: 1px solid #d0d5dd;
-  padding: 8px 0;
+  padding: 8px;
+  border-radius: 8px;
+}
+.video-tags1 {
+  border: 1px solid #d0d5dd;
+  padding: 8px 0px;
   border-radius: 8px;
 }
 
 .video-tags li {
+  background-color: #6b7280;
+  color: #fff;
+  border-radius: 16px;
+  padding: 2px 8px;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.video-tags1 li {
   background-color: #6b7280;
   color: #fff;
   border-radius: 16px;
@@ -118,6 +133,35 @@
   height: 122px;
   width: 100%;
   border-radius: 12px;
+}
+.verification{
+  text-align: center;
+}
+
+.verification input {
+  width: 75px !important;
+  height: 75px;
+  border-radius: 8px;
+  border: 1px solid #D6BBFB;
+  outline: #D6BBFB;
+  margin-right: 10px;
+  font-size: 48px;
+  font-weight: 600;
+  color: #FF0045;
+}
+
+.telephone-icon {
+width: 48px;
+height: 48px;
+margin: 0 auto;
+background-color: #FF004514;
+padding: 10px;
+border-radius: 50%;
+color: #ff0045;
+}
+
+.verification div {
+justify-content: center;
 }
 
 .thumbnail-img::after {
@@ -148,42 +192,23 @@
   transform: translate(-50%, 5px);
   opacity: 1;
   transform: translate(-50%, -35px);
-  /* opacity: 0;
-  visibility: hidden; */
 }
 
- .thumbnail-img:hover h5 {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -35px);
+.ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: conic-gradient(#ff5733, #ffbd33, #33ff57, #33aaff, #ff33aa, #ff5733);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-
-.verification{
-  text-align: center;
-}
-
-.verification input {
-  width: 80px !important;
-  height: 80px;
-  border-radius: 8px;
-  border: 1px solid #D6BBFB;
-  outline: #D6BBFB;
-  margin-right: 10px;
-  font-size: 48px;
-  font-weight: 600;
-  color: #FF0045;
-}
-
-.telephone-icon {
-width: 48px;
-height: 48px;
-margin: 0 auto;
-background-color: #FF004514;
-padding: 10px;
-border-radius: 50%;
-color: #ff0045;
-}
-
-.verification div {
-justify-content: center;
+.ring::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  position: absolute;
 }

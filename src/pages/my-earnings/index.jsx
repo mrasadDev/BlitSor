@@ -4,7 +4,7 @@ import SimplePage from "../../components/SimplePage";
 import FileBtn from "../../components/file-button/FileBtn";
 import { IoArrowUpOutline } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { PieChart } from "@mantine/charts";
+import { ResponsivePie } from "@nivo/pie";
 import { FaChevronDown } from "react-icons/fa";
 import "./style.css";
 
@@ -16,10 +16,24 @@ import {
 
 const index = () => {
   const data = [
-    { name: "USA", value: 400, color: "indigo.6" },
-    { name: "India", value: 300, color: "yellow.6" },
-    { name: "Japan", value: 300, color: "teal.6" },
-    { name: "Other", value: 200, color: "gray.6" },
+    {
+      id: "haskell",
+      label: "haskell",
+      value: 87,
+      color: "hsl(251, 74%, 73%)",
+    },
+    {
+      id: "css",
+      label: "css",
+      value: 385,
+      color: "hsl(188, 96%, 44%)",
+    },
+    {
+      id: "lisp",
+      label: "lisp",
+      value: 123,
+      color: "hsl(31, 100%, 65%)",
+    },
   ];
 
   return (
@@ -237,13 +251,47 @@ const index = () => {
                   </Menu>
                 </div>
               </div>
-              <PieChart
-                withLabelsLine
-                labelsPosition="outside"
-                labelsType="value"
-                withLabels
-                data={data}
-              />
+              <div>
+                <div style={{ height: "340px", width: "500px" }}>
+                  <ResponsivePie
+                    data={data}
+                    margin={{ top: 40, right: 100, bottom: 40, left: 80 }}
+                    innerRadius={0}
+                    padAngle={0.7}
+                    cornerRadius={3}
+                    activeOuterRadiusOffset={8}
+                    enableArcLabels={true}
+                    borderWidth={1}
+                    borderColor={{
+                      from: "color",
+                      modifiers: [["darker", 0.2]],
+                    }}
+                    colors={{ datum: "data.color" }} 
+                    arcLinkLabelsSkipAngle={360} 
+                    arcLabelsSkipAngle={10}
+                    arcLabelsTextColor={{
+                      from: "color",
+                      modifiers: [["darker", 2]],
+                    }}
+                    arcLabel={true}
+                    arcLabelsRadiusOffset={0.6} 
+                    legends={[
+                      {
+                        anchor: "right", 
+                        direction: "row", 
+                        justify: false,
+                        translateX: 0, 
+                        translateY: 150,
+                        itemsSpacing: 8, 
+                        itemWidth: 100,
+                        itemHeight: 18,
+                        symbolSize: 18,
+                        symbolShape: "circle",
+                      },
+                    ]}
+                  />
+                </div>
+              </div>
             </div>
           </Grid.Col>
         </Grid>

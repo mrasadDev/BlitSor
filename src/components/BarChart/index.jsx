@@ -25,7 +25,6 @@ const xLabels = [
   "Dec",
 ];
 
-// const yLabels = ["0", "200", "400", "600", "800", "1000"];
 
 export default function StackedBarChart() {
   return (

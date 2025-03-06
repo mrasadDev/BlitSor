@@ -11,7 +11,7 @@ const index = () => {
       <Text className='page-title'>Channel settings</Text>
       <Divider className='mt-3' />
 
-      <Grid className='mt-5'>
+      <Grid className='mt-5 cursor-pointer'>
         {StreamSetting.map((data) => {
           return (
           <Grid.Col span={{ xs:12,sm: 6, md: 4, lg: 3 }} key={data.id}>

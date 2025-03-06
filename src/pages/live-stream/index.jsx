@@ -4,7 +4,7 @@ import { Tabs } from "@mantine/core";
 import classes  from "../../styles/Tabs.module.css";
 import LiveStream from "./LiveStream";
 
-const index = () => {
+const Index = () => {
   const [activeTab, setActiveTab] = useState("all categories");
 
   return (
@@ -45,4 +45,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

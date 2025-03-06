@@ -4,11 +4,10 @@ import "./style.css";
 export default function index({bgImg,title,views,watch,category }) {
   return (
     <>
-      <Image
-        width={150}
+      <img
+        width={200}
         height={350}
-        mx="auto"
-        radius={20}
+        radius={40}
         src={bgImg}
         alt="Random image"
       />

@@ -50,7 +50,53 @@ const videos = () => {
                 <Table.Tr>
                   <Table.Td>
                     <div className="d-flex video-area">
-                      <figure className="me-2">
+                      <figure className="me-2 video-thumbnail">
+                        <img src="/images/test.jpg" alt="..." />
+                      </figure>
+                      <div className="table-vid-detail">
+                        <h6 className="mb-0">
+                          Dota 2 Gameplay Ep 1 with all...
+                        </h6>
+                        <span className="text-secondary">Category: Dota 2</span>
+                        <p className="text-secondary">
+                          Hey there folks today i’ll be streaming and record a
+                          full detailed guide for...
+                        </p>
+                      </div>
+                    </div>
+                  </Table.Td>
+                  <Table.Td>
+                    <span className="badge green-badge">Public</span>
+                  </Table.Td>
+                  <Table.Td>
+                    <span className="date">20/06/24</span>
+                  </Table.Td>
+                  <Table.Td>
+                    <span className="badge green-badge">
+                      <IoArrowUpOutline /> 20%
+                    </span>
+                  </Table.Td>
+                  <Table.Td>
+                    <figure>
+                      <img src="images/Avatars.png" alt="..." />
+                    </figure>
+                  </Table.Td>
+                  <Table.Td>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div className="video-progress-bar">
+                        <div className="video-progress" width="70%"></div>
+                      </div>
+                      <span>70%</span>
+                    </div>
+                  </Table.Td>
+                  <Table.Td>
+                    <BsThreeDotsVertical className="text-secondary" />
+                  </Table.Td>
+                </Table.Tr>
+                <Table.Tr>
+                  <Table.Td>
+                    <div className="d-flex video-area">
+                      <figure className="me-2 video-thumbnail">
                         <img src="/images/dasboard-vid-1.png" alt="..." />
                       </figure>
                       <div className="table-vid-detail">
@@ -96,53 +142,7 @@ const videos = () => {
                 <Table.Tr>
                   <Table.Td>
                     <div className="d-flex video-area">
-                      <figure className="me-2">
-                        <img src="/images/dasboard-vid-1.png" alt="..." />
-                      </figure>
-                      <div className="table-vid-detail">
-                        <h6 className="mb-0">
-                          Dota 2 Gameplay Ep 1 with all...
-                        </h6>
-                        <span className="text-secondary">Category: Dota 2</span>
-                        <p className="text-secondary">
-                          Hey there folks today i’ll be streaming and record a
-                          full detailed guide for...
-                        </p>
-                      </div>
-                    </div>
-                  </Table.Td>
-                  <Table.Td>
-                    <span className="badge green-badge">Public</span>
-                  </Table.Td>
-                  <Table.Td>
-                    <span className="date">20/06/24</span>
-                  </Table.Td>
-                  <Table.Td>
-                    <span className="badge green-badge">
-                      <IoArrowUpOutline /> 20%
-                    </span>
-                  </Table.Td>
-                  <Table.Td>
-                    <figure>
-                      <img src="images/Avatars.png" alt="..." />
-                    </figure>
-                  </Table.Td>
-                  <Table.Td>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="video-progress-bar">
-                        <div className="video-progress" width="70%"></div>
-                      </div>
-                      <span>70%</span>
-                    </div>
-                  </Table.Td>
-                  <Table.Td>
-                    <BsThreeDotsVertical className="text-secondary" />
-                  </Table.Td>
-                </Table.Tr>
-                <Table.Tr>
-                  <Table.Td>
-                    <div className="d-flex video-area">
-                      <figure className="me-2">
+                      <figure className="me-2 video-thumbnail">
                         <img src="/images/dasboard-vid-1.png" alt="..." />
                       </figure>
                       <div className="table-vid-detail">
@@ -193,7 +193,7 @@ const videos = () => {
                   <Table.Tr>
                     <Table.Td>
                       <div className="d-flex video-area">
-                        <figure className="me-2">
+                        <figure className="me-2 video-thumbnail">
                           <img src={data.video} alt="..." />
                         </figure>
                         <div className="table-vid-detail">

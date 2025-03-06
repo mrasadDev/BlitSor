@@ -1,4 +1,4 @@
-import { Grid, Menu, Text, Divider, Button, rem, Tabs } from "@mantine/core";
+import { Grid, Menu, Text, Button, rem } from "@mantine/core";
 import {
   IconMessageCircle,
   IconPhoto,
@@ -11,6 +11,8 @@ import { IoArrowUpOutline } from "react-icons/io5";
 import StackedBarChart from "../../components/BarChart";
 import { AreaChart } from "@mantine/charts";
 import "./style.css";
+import { ResponsivePie } from "@nivo/pie";
+import { ResponsiveRadialBar } from "@nivo/radial-bar";
 
 const Overview = () => {
   const data = [
@@ -43,6 +45,70 @@ const Overview = () => {
       Apples: 3129,
       Oranges: 1726,
       Tomatoes: 2290,
+    },
+  ];
+
+  const donutData = [
+    {
+      id: "haskell",
+      label: "haskell",
+      value: 187,
+      color: "hsl(344, 90%, 40%)",
+    },
+    {
+      id: "css",
+      label: "css",
+      value: 485,
+      color: "hsl(344, 100%, 60%)",
+    },
+    {
+      id: "lisp",
+      label: "lisp",
+      value: 523,
+      color: "hsl(344, 100%, 80%)",
+    },
+  ];
+
+  const radialData = [
+    {
+      id: "Supermarket",
+      data: [
+        {
+          x: "Vegetables",
+          y: 255,
+          color: "hsl(344, 100%, 60%)", // Attach color here
+        },
+        {
+          x: "Fruits",
+          y: 187,
+          color: "hsl(344, 90%, 40%)",
+        },
+        {
+          x: "Meat",
+          y: 50,
+          color: "hsl(344, 100%, 80%)",
+        },
+      ],
+    },
+    {
+      id: "Combini",
+      data: [
+        {
+          x: "Vegetables",
+          y: 152,
+          color: "hsl(344, 90%, 40%)",
+        },
+        {
+          x: "Fruits",
+          y: 287,
+          color: "hsl(344, 100%, 60%)",
+        },
+        {
+          x: "Meat",
+          y: 7,
+          color: "hsl(344, 100%, 80%)",
+        },
+      ],
     },
   ];
 
@@ -195,6 +261,121 @@ const Overview = () => {
                 <IoArrowUpOutline />
                 13%
               </span>
+            </div>
+          </div>
+        </Grid.Col>
+      </Grid>
+
+      <Grid>
+        <Grid.Col span={6}>
+          <h1
+            style={{ fontSize: "20px", fontWeight: "bold", marginLeft: "4rem" }}
+          >
+            Views By Country
+          </h1>
+          <div style={{ height: "340px", width: "500px" }}>
+            <ResponsivePie
+              data={donutData}
+              margin={{ top: 40, right: 100, bottom: 40, left: 80 }}
+              innerRadius={0.5}
+              padAngle={0.7}
+              cornerRadius={3}
+              activeOuterRadiusOffset={8}
+              borderWidth={1}
+              borderColor={{
+                from: "color",
+                modifiers: [["darker", 0.2]],
+              }}
+              colors={{ datum: "data.color" }}
+              arcLinkLabelsSkipAngle={360}
+              arcLabelsSkipAngle={10}
+              arcLabelsTextColor={{
+                from: "color",
+                modifiers: [["darker", 2]],
+              }}
+              arcLabel={false}
+              arcLabelsRadiusOffset={0.6}
+              legends={[
+                {
+                  anchor: "right",
+                  direction: "column",
+                  justify: false,
+                  translateX: 120,
+                  translateY: 0,
+                  itemsSpacing: 8,
+                  itemWidth: 100,
+                  itemHeight: 18,
+                  symbolSize: 18,
+                  symbolShape: "circle",
+                },
+              ]}
+            />
+          </div>
+        </Grid.Col>
+        <Grid.Col span={6}>
+          <h1
+            style={{ fontSize: "20px", fontWeight: "bold", marginLeft: "4rem" }}
+          >
+            Watch Time From Subscribers
+          </h1>
+          <div style={{ height: "340px", width: "500px" }}>
+            <ResponsiveRadialBar
+              data={radialData}
+              padding={0.4}
+              cornerRadius={2}
+              margin={{ top: 40, right: 120, bottom: 40, left: 40 }}
+              borderWidth={0}
+              innerRadius={0.6}
+              radialAxisStart={null} 
+              circularAxisOuter={null} 
+              colors={({ data }) => data.color} 
+              arcLabel={null}
+              legends={[
+                {
+                  anchor: "right",
+                  direction: "column",
+                  justify: false,
+                  translateX: 120,
+                  translateY: 0,
+                  itemsSpacing: 6,
+                  itemDirection: "left-to-right",
+                  itemWidth: 100,
+                  itemHeight: 18,
+                  itemTextColor: "#999",
+                  symbolSize: 18,
+                  symbolShape: "square",
+                  effects: [
+                    {
+                      on: "hover",
+                      style: {
+                        itemTextColor: "#000",
+                      },
+                    },
+                  ],
+                },
+              ]}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "89%",
+                left: "68%",
+                transform: "translate(-50%, -50%)",
+                textAlign: "center",
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "normal",
+                  color: "#4c4c4c",
+                }}
+              >
+                Active Users
+              </p>
+              22.6K
             </div>
           </div>
         </Grid.Col>
